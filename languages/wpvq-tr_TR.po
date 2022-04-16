@@ -1,0 +1,1824 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: WP Viral Quiz\n"
+"POT-Creation-Date: 2017-10-14 13:13+0100\n"
+"PO-Revision-Date: 2017-10-14 13:13+0100\n"
+"Last-Translator: Yasin Atagün <yasinatagun@gmail.com>\n"
+"Language-Team: \n"
+"Language: tr_TR\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Poedit 1.7.4\n"
+"X-Poedit-Basepath: ..\n"
+"X-Poedit-SourceCharset: UTF-8\n"
+"X-Poedit-KeywordsList: __;_e;_n:1,2;_x:1,2c;_ex:1,2c;_nx:4c,1,2;esc_attr__;"
+"esc_attr_e;esc_attr_x:1,2c;esc_html__;esc_html_e;esc_html_x:1,2c;_n_noop:1,2;"
+"_nx_noop:3c,1,2;__ngettext_noop:1,2\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+"X-Poedit-SearchPath-0: .\n"
+"X-Poedit-SearchPathExcluded-0: *.js\n"
+
+#: controller/WPVQGR_ajax_controller.php:108
+msgid "Final Result"
+msgstr ""
+
+#: includes/WPVQGR_Quiz.php:197
+msgid "Start the quiz!"
+msgstr ""
+
+#: includes/WPVQGR_Quiz.php:198
+msgid "↺ &nbsp; PLAY AGAIN !"
+msgstr ""
+
+#: includes/WPVQGR_Quiz.php:199
+msgid "Continue >>"
+msgstr ""
+
+#: includes/WPVQGR_Quiz.php:200
+msgid "Subscribe to see your results"
+msgstr ""
+
+#: includes/WPVQGR_Quiz.php:201
+msgid ""
+"Show my results &nbsp;<i class=\"fa fa-arrow-right\" aria-hidden=\"true\"></"
+"i>"
+msgstr ""
+
+#: includes/WPVQGR_Quiz.php:202
+msgid ""
+"Ignore & go to results <i class=\"fa fa-angle-double-right\" aria-hidden="
+"\"true\"></i>"
+msgstr ""
+
+#: includes/WPVQGR_Quiz.php:203
+msgid "Correct!"
+msgstr "Doğru!"
+
+#: includes/WPVQGR_Quiz.php:204
+msgid "Wrong!"
+msgstr "Yanlış!"
+
+#: includes/WPVQGR_Settings.php:11
+#: includes/quizzes/WPVQGR_type_trivia_meta.php:79
+msgid "Settings"
+msgstr "Ayarlar"
+
+#: includes/WPVQGR_Settings.php:13
+#: includes/quizzes/WPVQGR_type_perso_meta.php:68
+#: includes/quizzes/WPVQGR_type_trivia_meta.php:82
+#: includes/vendor/htmlburger/carbon-fields/core/Container/Container.php:711
+msgid "General"
+msgstr ""
+
+#: includes/WPVQGR_Settings.php:15
+msgid "Envato Licence Key"
+msgstr ""
+
+#: includes/WPVQGR_Settings.php:16
+msgid ""
+"To enable auto-update (very recommended), you have to put your Envato "
+"Purchase Code here. <a href=\"https://www.ohmyquiz.io/knowledgebase/enable-"
+"auto-update/\" target=\"_blank\">Click here to understand how to get your "
+"purchase code.</a>"
+msgstr ""
+
+#: includes/WPVQGR_Settings.php:19
+msgid "Enable Google Analytics tracking ?"
+msgstr ""
+
+#: includes/WPVQGR_Settings.php:21
+msgid ""
+"Track players using your Google Analytics account. <a href=\"https://www."
+"ohmyquiz.io/knowledgebase/google-analytics-tracking/\" target=\"_blank"
+"\">Read more.</a>"
+msgstr ""
+
+#: includes/WPVQGR_Settings.php:23
+msgid "Sharing"
+msgstr ""
+
+#: includes/WPVQGR_Settings.php:25
+msgid "Hide social button :"
+msgstr ""
+
+#: includes/WPVQGR_Settings.php:31
+msgid "Your Facebook App ID"
+msgstr ""
+
+#: includes/WPVQGR_Settings.php:32
+msgid ""
+"To enable the Facebook share button, you have to create a Facebook App with "
+"your Facebook account. Don't panic, it's VERY easy. <a href=\"https://www."
+"ohmyquiz.io/knowledgebase/configure-facebook-share-button/\" target=\"_blank"
+"\">Click here to understand how to create a Facebook App.</a>"
+msgstr ""
+
+#: includes/WPVQGR_Settings.php:34
+msgid "Ads Manager"
+msgstr ""
+
+#: includes/WPVQGR_Settings.php:38
+msgid ""
+"You can <strong>put some ads above and below each of your quizzes</strong>. "
+"Just copy and paste the HTML code of your ads in the field below."
+msgstr ""
+
+#: includes/WPVQGR_Settings.php:39
+msgid ""
+"<strong>You can also configure specific content quiz by quiz</strong>, when "
+"building your quiz. Look for the “ads and content” settings section on the "
+"building page."
+msgstr ""
+
+#: includes/WPVQGR_Settings.php:42
+msgid "Just before each quiz"
+msgstr ""
+
+#: includes/WPVQGR_Settings.php:43
+msgid "Add ads just after the quiz"
+msgstr ""
+
+#: includes/WPVQGR_Settings.php:44
+msgid "Above the result area (when a quiz is finished)"
+msgstr ""
+
+#: includes/WPVQGR_Settings.php:45
+msgid "Just after the text in the result area"
+msgstr ""
+
+#: includes/WPVQGR_Settings.php:47
+msgid "Trivia Quiz"
+msgstr ""
+
+#: includes/WPVQGR_Settings.php:51 includes/WPVQGR_Settings.php:73
+msgid "Customize Social Media Sharebox"
+msgstr ""
+
+#: includes/WPVQGR_Settings.php:53 includes/WPVQGR_Settings.php:75
+msgid ""
+"Configure share box content for Facebook and Twitter, when people share your "
+"quizzes. Unfortunately, <strong>Google+ does not let us customize the text</"
+"strong> when sharing."
+msgstr ""
+
+#: includes/WPVQGR_Settings.php:54
+msgid "will be replaced by the final score"
+msgstr ""
+
+#: includes/WPVQGR_Settings.php:54 includes/WPVQGR_Settings.php:76
+msgid "will be replaced by the personality description"
+msgstr ""
+
+#: includes/WPVQGR_Settings.php:54 includes/WPVQGR_Settings.php:76
+msgid "will be replaced by the number of questions"
+msgstr ""
+
+#: includes/WPVQGR_Settings.php:54 includes/WPVQGR_Settings.php:76
+msgid "will be replaced by the name of your quiz"
+msgstr ""
+
+#: includes/WPVQGR_Settings.php:57 includes/WPVQGR_Settings.php:79
+msgid "Text on your page (below the quiz) :"
+msgstr ""
+
+#: includes/WPVQGR_Settings.php:58
+#, php-format
+msgid "I got %%score%% of %%total%% right"
+msgstr "Ben, %%total%% sen dışarı %%score%% doğru cevap var mı?"
+
+#: includes/WPVQGR_Settings.php:60 includes/WPVQGR_Settings.php:86
+msgid "Content for Twitter :"
+msgstr ""
+
+#: includes/WPVQGR_Settings.php:61 includes/WPVQGR_Settings.php:64
+#, php-format
+msgid "I got %%score%% of %%total%% right, and you ?"
+msgstr "Ben, %%total%% sen dışarı %%score%% doğru cevap var mı?"
+
+#: includes/WPVQGR_Settings.php:63 includes/WPVQGR_Settings.php:89
+msgid "Content for Facebook Title :"
+msgstr ""
+
+#: includes/WPVQGR_Settings.php:66 includes/WPVQGR_Settings.php:92
+msgid "Content for Facebook Description :"
+msgstr ""
+
+#: includes/WPVQGR_Settings.php:69
+msgid "Personality Quiz"
+msgstr "Kişilik Testi"
+
+#: includes/WPVQGR_Settings.php:76
+msgid "will be replaced by the final result"
+msgstr ""
+
+#: includes/WPVQGR_Settings.php:76
+msgid "will be replaced by the score percentage"
+msgstr ""
+
+#: includes/WPVQGR_Settings.php:80
+#, php-format
+msgid "I'm %%personality%%"
+msgstr "Ben %%personality%%"
+
+#: includes/WPVQGR_Settings.php:82
+msgid "Text on your page for additionals results :"
+msgstr ""
+
+#: includes/WPVQGR_Settings.php:83
+#, php-format
+msgid "But I'm also %%personality%%"
+msgstr ""
+
+#: includes/WPVQGR_Settings.php:84
+msgid "Used when you dislay several personalities at the end of a quiz"
+msgstr ""
+
+#: includes/WPVQGR_Settings.php:87 includes/WPVQGR_Settings.php:90
+#, php-format
+msgid "I'm %%personality%%, and you ?"
+msgstr "Ben %%personality%%, ve sen?"
+
+#: includes/WPVQGR_Settings.php:95
+msgid "Under the hood"
+msgstr ""
+
+#: includes/WPVQGR_Settings.php:97
+msgid "Custom CSS code"
+msgstr ""
+
+#: includes/quizzes/WPVQGR_type_global_meta.php:36
+msgid "How to display the quiz?"
+msgstr ""
+
+#: includes/quizzes/WPVQGR_type_global_meta.php:43
+#, php-format
+msgid ""
+"<p>You can integrate the quiz wherever you want on your Wordpres site, using "
+"this simple shortcode :</p><br/><code>%s</code>"
+msgstr ""
+
+#: includes/quizzes/WPVQGR_type_global_meta.php:44
+msgid "/!\\ You must save your quiz to show its shortcode."
+msgstr ""
+
+#: includes/quizzes/WPVQGR_type_global_meta.php:47
+msgid ""
+"<p>Parameters :</p>\n"
+"    \t\t\t\t\t <strong>- columns</strong> : force to use X columns (between "
+"1 and 4)"
+msgstr ""
+
+#: includes/quizzes/WPVQGR_type_global_meta.php:51
+msgid "<p>Example :</p> <code>[wpViralQuiz id="
+msgstr ""
+
+#: includes/quizzes/WPVQGR_type_global_meta.php:59
+msgid "<p>Create a new quiz-post <a href=\"post-new.php?wpvqgr_shortcode_id="
+msgstr ""
+
+#: includes/quizzes/WPVQGR_type_global_meta.php:70
+msgid "What skin do you want :"
+msgstr ""
+
+#: includes/quizzes/WPVQGR_type_global_meta.php:72
+msgid "The Buzzfeed Skin"
+msgstr ""
+
+#: includes/quizzes/WPVQGR_type_global_meta.php:73
+msgid "The Modern Flat Skin"
+msgstr ""
+
+#: includes/quizzes/WPVQGR_type_global_meta.php:76
+msgid "Save every players' answers and score ?"
+msgstr ""
+
+#: includes/quizzes/WPVQGR_type_global_meta.php:77
+msgid ""
+"You can find all results saved in the <a href=\"edit.php?"
+"post_type=wpvqgr_user\" target=\"_blank\">Users submenu</a>."
+msgstr ""
+
+#: includes/quizzes/WPVQGR_type_global_meta.php:80
+msgid "Display Random Questions ?"
+msgstr ""
+
+#: includes/quizzes/WPVQGR_type_global_meta.php:84
+msgid "and show only XX questions (let blank for all)"
+msgstr ""
+
+#: includes/quizzes/WPVQGR_type_global_meta.php:86
+msgid ""
+"For instance if you want to display 10 questions over your 100 questions"
+msgstr ""
+
+#: includes/quizzes/WPVQGR_type_global_meta.php:94
+msgid "Always auto-scroll to the next question"
+msgstr ""
+
+#: includes/quizzes/WPVQGR_type_global_meta.php:98
+msgid "Fix the auto-scroll with an offset (in px)"
+msgstr ""
+
+#: includes/quizzes/WPVQGR_type_global_meta.php:100
+msgid "Useful if the scroll doesn't match exactly the next question."
+msgstr ""
+
+#: includes/quizzes/WPVQGR_type_global_meta.php:109
+msgid "Random order for answers ?"
+msgstr ""
+
+#: includes/quizzes/WPVQGR_type_global_meta.php:111
+msgid "Shuffle the answers for each question"
+msgstr ""
+
+#: includes/quizzes/WPVQGR_type_global_meta.php:113
+msgid "\"Start quiz\" button ?"
+msgstr ""
+
+#: includes/quizzes/WPVQGR_type_global_meta.php:116
+msgid "User need to click a button to start the quiz"
+msgstr ""
+
+#: includes/quizzes/WPVQGR_type_global_meta.php:118
+msgid "Text before the start button"
+msgstr ""
+
+#: includes/quizzes/WPVQGR_type_global_meta.php:127
+msgid "\"Play again\" button ?"
+msgstr ""
+
+#: includes/quizzes/WPVQGR_type_global_meta.php:129
+msgid "Display a \"Play Again\" button at the end of the quiz"
+msgstr ""
+
+#: includes/quizzes/WPVQGR_type_global_meta.php:131
+msgid "Redirect users at the end of the quiz ?"
+msgstr ""
+
+#: includes/quizzes/WPVQGR_type_global_meta.php:134
+msgid "Redirect to this URL :"
+msgstr ""
+
+#: includes/quizzes/WPVQGR_type_global_meta.php:135
+msgid ""
+"You can display quiz's results on a different page. <a href=\"https://www."
+"ohmyquiz.io/knowledgebase/redirect-user-another-page-end-quiz/\" target="
+"\"_blank\">Read more.</a>"
+msgstr ""
+
+#: includes/quizzes/WPVQGR_type_global_meta.php:144
+msgid "Refresh browser on page changes"
+msgstr ""
+
+#: includes/quizzes/WPVQGR_type_global_meta.php:146
+msgid "Refresh browser when changing quiz page (cool for pageviews++)"
+msgstr ""
+
+#: includes/quizzes/WPVQGR_type_global_meta.php:148
+msgid "Display Progressbar"
+msgstr ""
+
+#: includes/quizzes/WPVQGR_type_global_meta.php:150
+msgid "Display above the quiz"
+msgstr ""
+
+#: includes/quizzes/WPVQGR_type_global_meta.php:151
+msgid "Display below the quiz"
+msgstr ""
+
+#: includes/quizzes/WPVQGR_type_global_meta.php:154
+msgid "Text in the progressbar"
+msgstr ""
+
+#: includes/quizzes/WPVQGR_type_global_meta.php:156
+msgid "Leave blank"
+msgstr ""
+
+#: includes/quizzes/WPVQGR_type_global_meta.php:157
+msgid "Show progress percentage (ex: 70%)"
+msgstr ""
+
+#: includes/quizzes/WPVQGR_type_global_meta.php:158
+msgid "Show progress page per page (ex: page 7/10)"
+msgstr ""
+
+#: includes/quizzes/WPVQGR_type_global_meta.php:161
+msgid "Select the color of secondary elements"
+msgstr ""
+
+#: includes/quizzes/WPVQGR_type_global_meta.php:162
+msgid ""
+"It means : progressbar, \"start\", \"play again\" and \"continue\" buttons."
+msgstr ""
+
+#: includes/quizzes/WPVQGR_type_global_meta.php:176
+msgid ""
+"<strong>Let a field empty to use it default value, or to reset to it default "
+"value.</strong>"
+msgstr ""
+
+#: includes/quizzes/WPVQGR_type_global_meta.php:178
+msgid "Text of the \"Start\" button :"
+msgstr ""
+
+#: includes/quizzes/WPVQGR_type_global_meta.php:180
+msgid "You can enable the start button in the general tab."
+msgstr ""
+
+#: includes/quizzes/WPVQGR_type_global_meta.php:182
+msgid "Text of the \"Play Again\" button :"
+msgstr ""
+
+#: includes/quizzes/WPVQGR_type_global_meta.php:184
+msgid "You can enable the play again button in the general tab."
+msgstr ""
+
+#: includes/quizzes/WPVQGR_type_global_meta.php:186
+msgid "Text of the \"Continue\" button :"
+msgstr ""
+
+#: includes/quizzes/WPVQGR_type_global_meta.php:188
+msgid "If your quiz uses multiple pages."
+msgstr ""
+
+#: includes/quizzes/WPVQGR_type_global_meta.php:190
+msgid "Title of the final form"
+msgstr ""
+
+#: includes/quizzes/WPVQGR_type_global_meta.php:192
+msgid ""
+"If you ask people some info at the end, like an e-mail (in the marketing "
+"tab)."
+msgstr ""
+
+#: includes/quizzes/WPVQGR_type_global_meta.php:194
+msgid "Text of the submit button of the final form"
+msgstr ""
+
+#: includes/quizzes/WPVQGR_type_global_meta.php:196
+msgid "If you ask people some info at the end, like an e-mail."
+msgstr ""
+
+#: includes/quizzes/WPVQGR_type_global_meta.php:198
+msgid "Text to let people ignore the form if it's optional"
+msgstr ""
+
+#: includes/quizzes/WPVQGR_type_global_meta.php:200
+msgid ""
+"Something like \"Click here if you don't want to fill the form\". Used only "
+"if you set up an optional form."
+msgstr ""
+
+#: includes/quizzes/WPVQGR_type_global_meta.php:211
+msgid "People must share on Facebook to see results"
+msgstr ""
+
+#: includes/quizzes/WPVQGR_type_global_meta.php:214
+msgid "Display share buttons at the end of the quiz"
+msgstr "Paylaşım butonlarını quizin sonunda göster"
+
+#: includes/quizzes/WPVQGR_type_global_meta.php:218
+msgid "Show a very small label to help us to promote our plugin (thanks <3)"
+msgstr ""
+
+#: includes/quizzes/WPVQGR_type_global_meta.php:221
+msgid "Which Twitter hashtag do you want to use:"
+msgstr ""
+
+#: includes/quizzes/WPVQGR_type_global_meta.php:224
+msgid "Which Twitter account do you want to mention:"
+msgstr ""
+
+#: includes/quizzes/WPVQGR_type_global_meta.php:260
+msgid "Ask player informations at the end"
+msgstr ""
+
+#: includes/quizzes/WPVQGR_type_global_meta.php:264
+msgid "What informations would you want to ask?"
+msgstr ""
+
+#: includes/quizzes/WPVQGR_type_global_meta.php:266
+msgid "Field's name"
+msgstr ""
+
+#: includes/quizzes/WPVQGR_type_global_meta.php:268
+msgid "Field's type"
+msgstr ""
+
+#: includes/quizzes/WPVQGR_type_global_meta.php:271
+msgid "Text"
+msgstr ""
+
+#: includes/quizzes/WPVQGR_type_global_meta.php:272
+msgid "Number"
+msgstr ""
+
+#: includes/quizzes/WPVQGR_type_global_meta.php:273
+msgid "E-mail"
+msgstr ""
+
+#: includes/quizzes/WPVQGR_type_global_meta.php:274
+msgid "Phone number"
+msgstr ""
+
+#: includes/quizzes/WPVQGR_type_global_meta.php:277
+msgid "External Field's Name"
+msgstr ""
+
+#: includes/quizzes/WPVQGR_type_global_meta.php:278
+msgid "Use this only if you enable user sync below"
+msgstr ""
+
+#: includes/quizzes/WPVQGR_type_global_meta.php:281
+msgid "Is this field optional?"
+msgstr ""
+
+#: includes/quizzes/WPVQGR_type_global_meta.php:282
+msgid "User can leave it empty"
+msgstr ""
+
+#: includes/quizzes/WPVQGR_type_global_meta.php:287
+msgid "Fields"
+msgstr ""
+
+#: includes/quizzes/WPVQGR_type_global_meta.php:288
+msgid "Field"
+msgstr ""
+
+#: includes/quizzes/WPVQGR_type_global_meta.php:292
+msgid "User can ignore the form"
+msgstr ""
+
+#: includes/quizzes/WPVQGR_type_global_meta.php:294
+msgid "They will be able to ignore the whole form, and just see their results"
+msgstr ""
+
+#: includes/quizzes/WPVQGR_type_global_meta.php:299
+msgid "Sync user with a 3rd party service"
+msgstr ""
+
+#: includes/quizzes/WPVQGR_type_global_meta.php:301
+msgid "No"
+msgstr ""
+
+#: includes/quizzes/WPVQGR_type_global_meta.php:313
+msgid "Mailchimp API Key"
+msgstr ""
+
+#: includes/quizzes/WPVQGR_type_global_meta.php:317
+#: includes/quizzes/WPVQGR_type_global_meta.php:341
+#: includes/quizzes/WPVQGR_type_global_meta.php:358
+msgid "List ID"
+msgstr ""
+
+#: includes/quizzes/WPVQGR_type_global_meta.php:321
+msgid "Double Opt-In"
+msgstr ""
+
+#: includes/quizzes/WPVQGR_type_global_meta.php:337
+#: includes/quizzes/WPVQGR_type_global_meta.php:354
+msgid "API Key"
+msgstr ""
+
+#: includes/quizzes/WPVQGR_type_global_meta.php:350
+msgid "URL Endpoint"
+msgstr ""
+
+#: includes/quizzes/WPVQGR_type_global_meta.php:362
+msgid "Contact tags"
+msgstr ""
+
+#: includes/quizzes/WPVQGR_type_global_meta.php:375
+msgid "Add HTML code just before the quiz"
+msgstr ""
+
+#: includes/quizzes/WPVQGR_type_global_meta.php:376
+msgid "Add HTML code just after the quiz"
+msgstr ""
+
+#: includes/quizzes/WPVQGR_type_global_meta.php:377
+msgid "Add HTML code above the result area (when a quiz is finished)"
+msgstr ""
+
+#: includes/quizzes/WPVQGR_type_global_meta.php:378
+msgid "Add HTML code just after the text in the result area"
+msgstr ""
+
+#: includes/quizzes/WPVQGR_type_global_meta.php:380
+msgid "Trigger this JS code each time user answers something"
+msgstr ""
+
+#: includes/quizzes/WPVQGR_type_global_meta.php:381
+#: includes/quizzes/WPVQGR_type_global_meta.php:383
+#: includes/quizzes/WPVQGR_type_global_meta.php:385
+msgid ""
+"Don't add any &lt;script>...&lt;/script> tags here, just put your JS code."
+msgstr ""
+
+#: includes/quizzes/WPVQGR_type_global_meta.php:382
+msgid "Trigger this JS code when user ends the quiz"
+msgstr ""
+
+#: includes/quizzes/WPVQGR_type_global_meta.php:384
+msgid "Trigger this JS code when user starts the quiz"
+msgstr ""
+
+#: includes/quizzes/WPVQGR_type_perso.php:8
+msgctxt "Post Type General Name"
+msgid "Perso Quiz"
+msgstr ""
+
+#: includes/quizzes/WPVQGR_type_perso.php:9
+msgctxt "Post Type Singular Name"
+msgid "Perso quiz"
+msgstr ""
+
+#: includes/quizzes/WPVQGR_type_perso.php:10
+#: includes/quizzes/WPVQGR_type_trivia.php:10
+msgid "WP Viral Quiz"
+msgstr ""
+
+#: includes/quizzes/WPVQGR_type_perso.php:11
+#: includes/quizzes/WPVQGR_type_trivia.php:11
+#: includes/users/WPVQGR_type_user.php:11
+msgid "Post Type"
+msgstr ""
+
+#: includes/quizzes/WPVQGR_type_perso.php:12
+#: includes/quizzes/WPVQGR_type_trivia.php:12
+#: includes/users/WPVQGR_type_user.php:12
+msgid "Item Archives"
+msgstr ""
+
+#: includes/quizzes/WPVQGR_type_perso.php:13
+#: includes/quizzes/WPVQGR_type_trivia.php:13
+#: includes/users/WPVQGR_type_user.php:13
+msgid "Item Attributes"
+msgstr ""
+
+#: includes/quizzes/WPVQGR_type_perso.php:14
+#: includes/quizzes/WPVQGR_type_trivia.php:14
+#: includes/users/WPVQGR_type_user.php:14
+msgid "Parent Item:"
+msgstr ""
+
+#: includes/quizzes/WPVQGR_type_perso.php:15
+#: includes/quizzes/WPVQGR_type_trivia.php:15
+msgid "All bots"
+msgstr ""
+
+#: includes/quizzes/WPVQGR_type_perso.php:16
+#: includes/quizzes/WPVQGR_type_trivia.php:16
+msgid "Create a New Quiz"
+msgstr ""
+
+#: includes/quizzes/WPVQGR_type_perso.php:17
+#: includes/quizzes/WPVQGR_type_trivia.php:17
+msgid "Create New Quiz"
+msgstr ""
+
+#: includes/quizzes/WPVQGR_type_perso.php:18
+#: includes/quizzes/WPVQGR_type_trivia.php:18
+msgid "New Quiz"
+msgstr ""
+
+#: includes/quizzes/WPVQGR_type_perso.php:19
+#: includes/quizzes/WPVQGR_type_trivia.php:19
+msgid "Edit Quiz"
+msgstr ""
+
+#: includes/quizzes/WPVQGR_type_perso.php:20
+#: includes/quizzes/WPVQGR_type_trivia.php:20
+msgid "Update Quiz"
+msgstr ""
+
+#: includes/quizzes/WPVQGR_type_perso.php:21
+#: includes/quizzes/WPVQGR_type_trivia.php:21
+#: includes/users/WPVQGR_type_user.php:21
+msgid "View Item"
+msgstr ""
+
+#: includes/quizzes/WPVQGR_type_perso.php:22
+#: includes/quizzes/WPVQGR_type_trivia.php:22
+#: includes/users/WPVQGR_type_user.php:22
+msgid "View Items"
+msgstr ""
+
+#: includes/quizzes/WPVQGR_type_perso.php:23
+#: includes/quizzes/WPVQGR_type_trivia.php:23
+#: includes/users/WPVQGR_type_user.php:23
+msgid "Search Item"
+msgstr ""
+
+#: includes/quizzes/WPVQGR_type_perso.php:24
+#: includes/quizzes/WPVQGR_type_trivia.php:24
+#: includes/users/WPVQGR_type_user.php:24
+msgid "Not found"
+msgstr ""
+
+#: includes/quizzes/WPVQGR_type_perso.php:25
+#: includes/quizzes/WPVQGR_type_trivia.php:25
+#: includes/users/WPVQGR_type_user.php:25
+msgid "Not found in Trash"
+msgstr ""
+
+#: includes/quizzes/WPVQGR_type_perso.php:26
+#: includes/quizzes/WPVQGR_type_trivia.php:26
+#: includes/users/WPVQGR_type_user.php:26
+msgid "Featured Image"
+msgstr ""
+
+#: includes/quizzes/WPVQGR_type_perso.php:27
+#: includes/quizzes/WPVQGR_type_trivia.php:27
+#: includes/users/WPVQGR_type_user.php:27
+msgid "Set featured image"
+msgstr ""
+
+#: includes/quizzes/WPVQGR_type_perso.php:28
+#: includes/quizzes/WPVQGR_type_trivia.php:28
+#: includes/users/WPVQGR_type_user.php:28
+msgid "Remove featured image"
+msgstr ""
+
+#: includes/quizzes/WPVQGR_type_perso.php:29
+#: includes/quizzes/WPVQGR_type_trivia.php:29
+#: includes/users/WPVQGR_type_user.php:29
+msgid "Use as featured image"
+msgstr ""
+
+#: includes/quizzes/WPVQGR_type_perso.php:30
+#: includes/quizzes/WPVQGR_type_trivia.php:30
+#: includes/users/WPVQGR_type_user.php:30
+msgid "Insert into item"
+msgstr ""
+
+#: includes/quizzes/WPVQGR_type_perso.php:31
+#: includes/quizzes/WPVQGR_type_trivia.php:31
+#: includes/users/WPVQGR_type_user.php:31
+msgid "Uploaded to this item"
+msgstr ""
+
+#: includes/quizzes/WPVQGR_type_perso.php:32
+#: includes/quizzes/WPVQGR_type_trivia.php:32
+#: includes/users/WPVQGR_type_user.php:32
+msgid "Items list"
+msgstr ""
+
+#: includes/quizzes/WPVQGR_type_perso.php:33
+#: includes/quizzes/WPVQGR_type_trivia.php:33
+#: includes/users/WPVQGR_type_user.php:33
+msgid "Items list navigation"
+msgstr ""
+
+#: includes/quizzes/WPVQGR_type_perso.php:34
+#: includes/quizzes/WPVQGR_type_trivia.php:34
+#: includes/users/WPVQGR_type_user.php:34
+msgid "Filter items list"
+msgstr ""
+
+#: includes/quizzes/WPVQGR_type_perso.php:42
+#: includes/quizzes/WPVQGR_type_trivia.php:42
+msgid "Quiz"
+msgstr ""
+
+#: includes/quizzes/WPVQGR_type_perso.php:43
+#: includes/quizzes/WPVQGR_type_trivia.php:43
+msgid "A quiz"
+msgstr ""
+
+#: includes/quizzes/WPVQGR_type_perso.php:69
+#: includes/quizzes/WPVQGR_type_trivia.php:69
+msgid "Save"
+msgstr ""
+
+#: includes/quizzes/WPVQGR_type_perso.php:80
+msgid "Perso Quizzes"
+msgstr ""
+
+#: includes/quizzes/WPVQGR_type_perso_meta.php:15
+msgid "Build a new Perso Quiz"
+msgstr ""
+
+#: includes/quizzes/WPVQGR_type_perso_meta.php:18
+#: includes/quizzes/WPVQGR_type_perso_meta.php:30
+msgid "Personalities"
+msgstr ""
+
+#: includes/quizzes/WPVQGR_type_perso_meta.php:19
+msgid "Create some personalities for your quiz"
+msgstr "Quiz için kişilikler oluşturun"
+
+#: includes/quizzes/WPVQGR_type_perso_meta.php:20
+msgid "Configure this personality"
+msgstr ""
+
+#: includes/quizzes/WPVQGR_type_perso_meta.php:21
+msgid "Personality name"
+msgstr "Kişilik ismi"
+
+#: includes/quizzes/WPVQGR_type_perso_meta.php:22
+#: includes/quizzes/WPVQGR_type_trivia_meta.php:23
+msgid "Choose a picture for the Facebook share box"
+msgstr ""
+
+#: includes/quizzes/WPVQGR_type_perso_meta.php:25
+#: includes/quizzes/WPVQGR_type_trivia_meta.php:26
+msgid "Let empty to let Facebook choose a picture for you automatically"
+msgstr ""
+
+#: includes/quizzes/WPVQGR_type_perso_meta.php:26
+msgid "Personality's description :"
+msgstr ""
+
+#: includes/quizzes/WPVQGR_type_perso_meta.php:31
+msgid "Personality"
+msgstr "Kişilik"
+
+#: includes/quizzes/WPVQGR_type_perso_meta.php:39
+#: includes/quizzes/WPVQGR_type_trivia_meta.php:36
+msgid "Questions/answers"
+msgstr ""
+
+#: includes/quizzes/WPVQGR_type_perso_meta.php:40
+#: includes/quizzes/WPVQGR_type_trivia_meta.php:37
+msgid ""
+"Create questions and answers for each question, to build a cool and viral "
+"quiz."
+msgstr ""
+
+#: includes/quizzes/WPVQGR_type_perso_meta.php:43
+#: includes/quizzes/WPVQGR_type_trivia_meta.php:40
+msgid "Picture"
+msgstr ""
+
+#: includes/quizzes/WPVQGR_type_perso_meta.php:45
+#: includes/quizzes/WPVQGR_type_trivia_meta.php:42
+msgid "Content"
+msgstr ""
+
+#: includes/quizzes/WPVQGR_type_perso_meta.php:48
+#: includes/quizzes/WPVQGR_type_perso_meta.php:52
+#: includes/quizzes/WPVQGR_type_trivia_meta.php:45
+#: includes/quizzes/WPVQGR_type_trivia_meta.php:56
+msgid "Answers"
+msgstr ""
+
+#: includes/quizzes/WPVQGR_type_perso_meta.php:53
+#: includes/quizzes/WPVQGR_type_trivia_meta.php:49
+#: includes/quizzes/WPVQGR_type_trivia_meta.php:57
+#: includes/users/WPVQGR_type_user_meta.php:39
+msgid "Answer"
+msgstr ""
+
+#: includes/quizzes/WPVQGR_type_perso_meta.php:56
+#: includes/quizzes/WPVQGR_type_trivia_meta.php:59
+msgid "Do you want to add a page after this question ?"
+msgstr ""
+
+#: includes/quizzes/WPVQGR_type_perso_meta.php:60
+#: includes/quizzes/WPVQGR_type_trivia_meta.php:74
+msgid "Questions"
+msgstr ""
+
+#: includes/quizzes/WPVQGR_type_perso_meta.php:61
+#: includes/quizzes/WPVQGR_type_trivia_meta.php:75
+#: includes/users/WPVQGR_type_user_meta.php:37
+msgid "Question"
+msgstr "Soru"
+
+#: includes/quizzes/WPVQGR_type_perso_meta.php:65
+msgid "Quiz Settings"
+msgstr ""
+
+#: includes/quizzes/WPVQGR_type_perso_meta.php:72
+#: includes/quizzes/WPVQGR_type_trivia_meta.php:86
+msgid "Custom Labels"
+msgstr ""
+
+#: includes/quizzes/WPVQGR_type_perso_meta.php:76
+msgid "Specific to Personality Quiz"
+msgstr ""
+
+#: includes/quizzes/WPVQGR_type_perso_meta.php:78
+msgid "How many personalities displayed at the end ?"
+msgstr ""
+
+#: includes/quizzes/WPVQGR_type_perso_meta.php:81
+msgid "(order by score descending, default is 1)"
+msgstr ""
+
+#: includes/quizzes/WPVQGR_type_perso_meta.php:83
+msgid "\"Continue\" button between pages"
+msgstr ""
+
+#: includes/quizzes/WPVQGR_type_perso_meta.php:85
+msgid "Force user to click on \"Continue\" between each page"
+msgstr ""
+
+#: includes/quizzes/WPVQGR_type_perso_meta.php:88
+#: includes/quizzes/WPVQGR_type_trivia_meta.php:103
+msgid "Virality"
+msgstr ""
+
+#: includes/quizzes/WPVQGR_type_perso_meta.php:92
+#: includes/quizzes/WPVQGR_type_trivia_meta.php:107
+msgid "Marketing"
+msgstr ""
+
+#: includes/quizzes/WPVQGR_type_perso_meta.php:96
+#: includes/quizzes/WPVQGR_type_trivia_meta.php:111
+msgid "Ads & code"
+msgstr ""
+
+#: includes/quizzes/WPVQGR_type_perso_meta.php:100
+#: includes/quizzes/WPVQGR_type_trivia_meta.php:115
+msgid "Advanced"
+msgstr ""
+
+#: includes/quizzes/WPVQGR_type_perso_meta.php:191
+msgid ""
+"If you don't see all your personalities below, please <strong>save the quiz</"
+"strong> to refresh the page."
+msgstr ""
+
+#: includes/quizzes/WPVQGR_type_trivia.php:8
+msgctxt "Post Type General Name"
+msgid "Trivia Quiz"
+msgstr ""
+
+#: includes/quizzes/WPVQGR_type_trivia.php:9
+msgctxt "Post Type Singular Name"
+msgid "Quiz"
+msgstr ""
+
+#: includes/quizzes/WPVQGR_type_trivia.php:80
+msgid "Trivia Quizzes"
+msgstr ""
+
+#: includes/quizzes/WPVQGR_type_trivia_meta.php:15
+msgid "Build a new Trivia Quiz"
+msgstr ""
+
+#: includes/quizzes/WPVQGR_type_trivia_meta.php:18
+msgid "Appreciations on results"
+msgstr ""
+
+#: includes/quizzes/WPVQGR_type_trivia_meta.php:19
+msgid "Write something to people depending on their score."
+msgstr "İnsanlara skoruna göre bir şeyler yazın."
+
+#: includes/quizzes/WPVQGR_type_trivia_meta.php:20
+msgid "Configure this appreciation"
+msgstr ""
+
+#: includes/quizzes/WPVQGR_type_trivia_meta.php:21
+msgid "Display this appreciation if user gets less than ... points"
+msgstr ""
+
+#: includes/quizzes/WPVQGR_type_trivia_meta.php:22
+msgid ""
+"Ex: if you put 4, this appreciation will be displayed if user gets 0, 1, 2, "
+"3 or 4 points."
+msgstr ""
+
+#: includes/quizzes/WPVQGR_type_trivia_meta.php:27
+msgid "Appreciation's description :"
+msgstr ""
+
+#: includes/quizzes/WPVQGR_type_trivia_meta.php:28
+msgid ""
+"Displayed in the result's box and, if you want, in the Facebook share box"
+msgstr ""
+
+#: includes/quizzes/WPVQGR_type_trivia_meta.php:32
+msgid "Appreciations"
+msgstr ""
+
+#: includes/quizzes/WPVQGR_type_trivia_meta.php:33
+msgid "Appreciation"
+msgstr ""
+
+#: includes/quizzes/WPVQGR_type_trivia_meta.php:38
+msgid "Configure this question"
+msgstr ""
+
+#: includes/quizzes/WPVQGR_type_trivia_meta.php:46
+msgid "Configure this answer"
+msgstr ""
+
+#: includes/quizzes/WPVQGR_type_trivia_meta.php:47
+msgid "Image"
+msgstr ""
+
+#: includes/quizzes/WPVQGR_type_trivia_meta.php:51
+msgid "This answer is the right answer"
+msgstr "Bu cevap doğru."
+
+#: includes/quizzes/WPVQGR_type_trivia_meta.php:62
+msgid "Give an explaination when people answer?"
+msgstr ""
+
+#: includes/quizzes/WPVQGR_type_trivia_meta.php:65
+msgid "Write the explanation here"
+msgstr ""
+
+#: includes/quizzes/WPVQGR_type_trivia_meta.php:88
+msgid "Replace \"Correct!\" with something else"
+msgstr ""
+
+#: includes/quizzes/WPVQGR_type_trivia_meta.php:90
+#: includes/quizzes/WPVQGR_type_trivia_meta.php:94
+msgid "Leave blank to reset to default value."
+msgstr ""
+
+#: includes/quizzes/WPVQGR_type_trivia_meta.php:92
+msgid "Replace \"Wrong!\" with something else"
+msgstr ""
+
+#: includes/quizzes/WPVQGR_type_trivia_meta.php:96
+msgid "Specific to Trivia"
+msgstr ""
+
+#: includes/quizzes/WPVQGR_type_trivia_meta.php:101
+msgid "No specific setting for now. Probably in the next update :))"
+msgstr ""
+
+#: includes/users/WPVQGR_type_user.php:8
+msgctxt "Post Type General Name"
+msgid "Quiz Users"
+msgstr ""
+
+#: includes/users/WPVQGR_type_user.php:9
+msgctxt "Post Type Singular Name"
+msgid "User"
+msgstr ""
+
+#: includes/users/WPVQGR_type_user.php:10
+#: includes/users/WPVQGR_type_user.php:86
+msgid "Users"
+msgstr ""
+
+#: includes/users/WPVQGR_type_user.php:15
+msgid "All Users"
+msgstr ""
+
+#: includes/users/WPVQGR_type_user.php:16
+msgid "Create a New User"
+msgstr ""
+
+#: includes/users/WPVQGR_type_user.php:17
+msgid "Create New User"
+msgstr ""
+
+#: includes/users/WPVQGR_type_user.php:18
+msgid "New User"
+msgstr ""
+
+#: includes/users/WPVQGR_type_user.php:19
+msgid "Edit User"
+msgstr ""
+
+#: includes/users/WPVQGR_type_user.php:20
+msgid "Update User"
+msgstr ""
+
+#: includes/users/WPVQGR_type_user.php:38
+msgid "User"
+msgstr ""
+
+#: includes/users/WPVQGR_type_user.php:39
+msgid "An user"
+msgstr ""
+
+#: includes/users/WPVQGR_type_user.php:95
+#: includes/users/WPVQGR_type_user.php:96
+msgid "Quiz Tag"
+msgstr ""
+
+#: includes/users/WPVQGR_type_user.php:97
+msgid "Search Quiz Tags"
+msgstr ""
+
+#: includes/users/WPVQGR_type_user.php:98
+msgid "Popular Quiz Tags"
+msgstr ""
+
+#: includes/users/WPVQGR_type_user.php:99
+msgid "All Quiz Tags"
+msgstr ""
+
+#: includes/users/WPVQGR_type_user.php:102
+msgid "Edit Quiz Tag"
+msgstr ""
+
+#: includes/users/WPVQGR_type_user.php:103
+msgid "Update Quiz Tag"
+msgstr ""
+
+#: includes/users/WPVQGR_type_user.php:104
+msgid "Add New Quiz Tag"
+msgstr ""
+
+#: includes/users/WPVQGR_type_user.php:105
+msgid "New Quiz Tag"
+msgstr ""
+
+#: includes/users/WPVQGR_type_user.php:106
+msgid "Separate Quiz Tags with commas"
+msgstr ""
+
+#: includes/users/WPVQGR_type_user.php:107
+msgid "Add or remove Quiz Tags"
+msgstr ""
+
+#: includes/users/WPVQGR_type_user.php:108
+msgid "Choose from the most used quiz tags"
+msgstr ""
+
+#: includes/users/WPVQGR_type_user.php:109
+msgid "Quiz Tags"
+msgstr ""
+
+#: includes/users/WPVQGR_type_user_meta.php:15
+msgid "User's Profile"
+msgstr ""
+
+#: includes/users/WPVQGR_type_user_meta.php:18
+msgid "All the user's inputs"
+msgstr ""
+
+#: includes/users/WPVQGR_type_user_meta.php:19
+msgid "This profile has been generated when an user use one of your quizzes."
+msgstr ""
+
+#: includes/users/WPVQGR_type_user_meta.php:24
+msgid "Data key"
+msgstr ""
+
+#: includes/users/WPVQGR_type_user_meta.php:25
+msgid "Data value"
+msgstr ""
+
+#: includes/users/WPVQGR_type_user_meta.php:29
+msgid "User's Answers"
+msgstr ""
+
+#: includes/users/WPVQGR_type_user_meta.php:32
+msgid "All the user's answers"
+msgstr ""
+
+#: includes/vendor/htmlburger/carbon-fields/core/Container/Theme_Options_Container.php:211
+msgid "Settings saved."
+msgstr ""
+
+#: includes/vendor/htmlburger/carbon-fields/core/Field/Footer_Scripts_Field.php:20
+msgid ""
+"If you need to add scripts to your footer (like Google Analytics tracking "
+"code), you should enter them in this box."
+msgstr ""
+
+#: includes/vendor/htmlburger/carbon-fields/core/Field/Gravity_Form_Field.php:47
+msgid "No form"
+msgstr ""
+
+#: includes/vendor/htmlburger/carbon-fields/core/Field/Header_Scripts_Field.php:20
+msgid "If you need to add scripts to your header, you should enter them here."
+msgstr ""
+
+#: includes/vendor/htmlburger/carbon-fields/core/Field/Sidebar_Field.php:50
+msgctxt "sidebar"
+msgid "Add New"
+msgstr ""
+
+#: includes/vendor/htmlburger/carbon-fields/core/Helper/Helper.php:498
+msgid "F j, Y"
+msgstr ""
+
+#: includes/vendor/htmlburger/carbon-fields/core/Libraries/Sidebar_Manager/Sidebar_Manager.php:69
+msgid "Please enter a name for the sidebar."
+msgstr ""
+
+#: includes/vendor/htmlburger/carbon-fields/core/Libraries/Sidebar_Manager/Sidebar_Manager.php:72
+msgid "Unknown action attempted."
+msgstr ""
+
+#: includes/vendor/htmlburger/carbon-fields/core/Libraries/Sidebar_Manager/Sidebar_Manager.php:102
+msgid "Sidebar with the same ID is already registered."
+msgstr ""
+
+#: includes/vendor/htmlburger/carbon-fields/core/Libraries/Sidebar_Manager/Sidebar_Manager.php:112
+#: includes/vendor/htmlburger/carbon-fields/core/Libraries/Sidebar_Manager/Sidebar_Manager.php:142
+msgid ""
+"Failed to update option storing your custom sidebars. Please contact support."
+msgstr ""
+
+#: includes/vendor/htmlburger/carbon-fields/core/Libraries/Sidebar_Manager/Sidebar_Manager.php:137
+msgid "Sidebar not found."
+msgstr ""
+
+#: includes/vendor/htmlburger/carbon-fields/core/Libraries/Sidebar_Manager/Sidebar_Manager.php:181
+msgid "Add Sidebar"
+msgstr ""
+
+#: includes/vendor/htmlburger/carbon-fields/core/Libraries/Sidebar_Manager/Sidebar_Manager.php:182
+#: includes/vendor/htmlburger/carbon-fields/core/Loader/Loader.php:141
+msgid "Please enter the name of the new sidebar:"
+msgstr ""
+
+#: includes/vendor/htmlburger/carbon-fields/core/Libraries/Sidebar_Manager/Sidebar_Manager.php:183
+msgid "Are you sure you wish to remove this sidebar?"
+msgstr ""
+
+#: includes/vendor/htmlburger/carbon-fields/core/Loader/Loader.php:119
+msgid "Please fill out all required fields highlighted below."
+msgstr ""
+
+#: includes/vendor/htmlburger/carbon-fields/core/Loader/Loader.php:120
+msgid "The changes you made will be lost if you navigate away from this page."
+msgstr ""
+
+#: includes/vendor/htmlburger/carbon-fields/core/Loader/Loader.php:123
+msgid "The address could not be found. "
+msgstr ""
+
+#: includes/vendor/htmlburger/carbon-fields/core/Loader/Loader.php:124
+msgid "Geocode was not successful for the following reason: "
+msgstr ""
+
+#: includes/vendor/htmlburger/carbon-fields/core/Loader/Loader.php:125
+msgid "Locate address on the map:"
+msgstr ""
+
+#: includes/vendor/htmlburger/carbon-fields/core/Loader/Loader.php:126
+#, php-format
+msgid "Minimum number of items not reached (%s items)"
+msgstr ""
+
+#: includes/vendor/htmlburger/carbon-fields/core/Loader/Loader.php:127
+#, php-format
+msgid "Maximum number of items reached (%s items)"
+msgstr ""
+
+#: includes/vendor/htmlburger/carbon-fields/core/Loader/Loader.php:129
+#, php-format
+msgid "There are no %s yet. Click <a href=\"#\">here</a> to add one."
+msgstr ""
+
+#: includes/vendor/htmlburger/carbon-fields/core/Loader/Loader.php:130
+#, php-format
+msgid "Minimum number of rows not reached (%1$d %2$s)"
+msgstr ""
+
+#: includes/vendor/htmlburger/carbon-fields/core/Loader/Loader.php:131
+#, php-format
+msgid "Maximum number of rows exceeded (%1$d %2$s)"
+msgstr ""
+
+#: includes/vendor/htmlburger/carbon-fields/core/Loader/Loader.php:132
+#, php-format
+msgctxt "Complex field"
+msgid "Add %s"
+msgstr ""
+
+#: includes/vendor/htmlburger/carbon-fields/core/Loader/Loader.php:133
+msgctxt "Complex field"
+msgid "Clone"
+msgstr ""
+
+#: includes/vendor/htmlburger/carbon-fields/core/Loader/Loader.php:134
+msgctxt "Complex field"
+msgid "Remove"
+msgstr ""
+
+#: includes/vendor/htmlburger/carbon-fields/core/Loader/Loader.php:135
+msgctxt "Complex field"
+msgid "Collapse/Expand"
+msgstr ""
+
+#: includes/vendor/htmlburger/carbon-fields/core/Loader/Loader.php:137
+msgid "Please fill out all fields correctly. "
+msgstr ""
+
+#: includes/vendor/htmlburger/carbon-fields/core/Loader/Loader.php:138
+msgid "This field is required. "
+msgstr ""
+
+#: includes/vendor/htmlburger/carbon-fields/core/Loader/Loader.php:139
+msgid "Please choose an option. "
+msgstr ""
+
+#: includes/vendor/htmlburger/carbon-fields/core/Loader/Loader.php:143
+msgid "Select Time"
+msgstr ""
+
+#: includes/vendor/htmlburger/carbon-fields/core/Loader/Loader.php:144
+msgid "Select Date"
+msgstr ""
+
+#: includes/vendor/htmlburger/carbon-fields/core/Loader/Loader.php:146
+#, php-format
+msgid "%1$d selected item"
+msgstr ""
+
+#: includes/vendor/htmlburger/carbon-fields/core/Loader/Loader.php:147
+#, php-format
+msgid "%1$d selected items"
+msgstr ""
+
+#: includes/vendor/htmlburger/carbon-fields/core/Loader/Loader.php:148
+#, php-format
+msgid "%1$d selected item out of %2$d"
+msgstr ""
+
+#: includes/vendor/htmlburger/carbon-fields/core/Loader/Loader.php:149
+#, php-format
+msgid "%1$d selected items out of %2$d"
+msgstr ""
+
+#: includes/vendor/htmlburger/carbon-fields/core/Loader/Loader.php:151
+msgid "Select a color"
+msgstr ""
+
+#: includes/vendor/htmlburger/carbon-fields/core/Loader/Loader.php:153
+msgid "No options."
+msgstr ""
+
+#: includes/vendor/htmlburger/carbon-fields/core/Loader/Loader.php:155
+msgid "Show all options"
+msgstr ""
+
+#: includes/vendor/htmlburger/carbon-fields/core/Loader/Loader.php:157
+msgid "Search..."
+msgstr ""
+
+#: includes/vendor/htmlburger/carbon-fields/core/Loader/Loader.php:159
+msgctxt "WordPress media attachment"
+msgid "URL"
+msgstr ""
+
+#: includes/vendor/htmlburger/carbon-fields/core/Loader/Loader.php:160
+msgctxt "WordPress media attachment"
+msgid "Title"
+msgstr ""
+
+#: includes/vendor/htmlburger/carbon-fields/core/Loader/Loader.php:161
+msgctxt "WordPress media attachment"
+msgid "Artist"
+msgstr ""
+
+#: includes/vendor/htmlburger/carbon-fields/core/Loader/Loader.php:162
+msgctxt "WordPress media attachment"
+msgid "Album"
+msgstr ""
+
+#: includes/vendor/htmlburger/carbon-fields/core/Loader/Loader.php:163
+msgctxt "WordPress media attachment"
+msgid "Caption"
+msgstr ""
+
+#: includes/vendor/htmlburger/carbon-fields/core/Loader/Loader.php:164
+msgctxt "WordPress media attachment"
+msgid "Alt Text"
+msgstr ""
+
+#: includes/vendor/htmlburger/carbon-fields/core/Loader/Loader.php:165
+msgctxt "WordPress media attachment"
+msgid "Description"
+msgstr ""
+
+#: includes/vendor/htmlburger/carbon-fields/core/Loader/Loader.php:166
+msgctxt "WordPress media attachment"
+msgid "Close"
+msgstr ""
+
+#: includes/vendor/htmlburger/carbon-fields/core/Loader/Loader.php:167
+msgctxt "WordPress media attachment"
+msgid "Save"
+msgstr ""
+
+#: includes/vendor/htmlburger/carbon-fields/core/Loader/Loader.php:169
+msgctxt "oEmbed field"
+msgid "Not Found"
+msgstr ""
+
+#: includes/vendor/htmlburger/carbon-fields/core/Loader/Loader.php:171
+msgid "No files selected."
+msgstr ""
+
+#: includes/vendor/htmlburger/carbon-fields/core/Loader/Loader.php:172
+msgid "Add File"
+msgstr ""
+
+#: includes/vendor/htmlburger/carbon-fields/core/Loader/Loader.php:173
+#: includes/vendor/htmlburger/carbon-fields/core/Loader/Loader.php:177
+msgctxt "WordPress Media Browser"
+msgid "Files"
+msgstr ""
+
+#: includes/vendor/htmlburger/carbon-fields/core/Loader/Loader.php:174
+#: includes/vendor/htmlburger/carbon-fields/core/Loader/Loader.php:178
+msgctxt "WordPress Media Browser"
+msgid "Select File"
+msgstr ""
+
+#: includes/vendor/htmlburger/carbon-fields/core/Loader/Loader.php:176
+msgid "Select File"
+msgstr ""
+
+#: includes/vendor/htmlburger/carbon-fields/core/Loader/Loader.php:180
+msgid "Select Image"
+msgstr ""
+
+#: includes/vendor/htmlburger/carbon-fields/core/Loader/Loader.php:181
+msgctxt "WordPress Media Browser"
+msgid "Images"
+msgstr ""
+
+#: includes/vendor/htmlburger/carbon-fields/core/Loader/Loader.php:182
+msgctxt "WordPress Media Browser"
+msgid "Select Image"
+msgstr ""
+
+#: includes/vendor/htmlburger/carbon-fields/core/REST_API/Router.php:287
+msgid "No option names provided"
+msgstr ""
+
+#: includes/vendor/htmlburger/carbon-fields/core/REST_API/Router.php:298
+msgid "Theme Options updated."
+msgstr ""
+
+#: includes/vendor/htmlburger/carbon-fields/templates/Container/theme_options.php:29
+msgid "Actions"
+msgstr ""
+
+#: includes/vendor/htmlburger/carbon-fields/templates/Container/theme_options.php:38
+msgid "Save Changes"
+msgstr ""
+
+#: includes/vendor/htmlburger/carbon-fields/templates/Container/widget.php:4
+msgid "No options are available for this widget."
+msgstr ""
+
+#: includes/vendor/yahnis-elsts/plugin-update-checker/Puc/v4p2/Plugin/UpdateChecker.php:391
+msgid "Check for updates"
+msgstr ""
+
+#: includes/vendor/yahnis-elsts/plugin-update-checker/Puc/v4p2/Plugin/UpdateChecker.php:438
+#, php-format
+msgctxt "the plugin title"
+msgid "The %s plugin is up to date."
+msgstr ""
+
+#: includes/vendor/yahnis-elsts/plugin-update-checker/Puc/v4p2/Plugin/UpdateChecker.php:440
+#, php-format
+msgctxt "the plugin title"
+msgid "A new version of the %s plugin is available."
+msgstr ""
+
+#: includes/vendor/yahnis-elsts/plugin-update-checker/Puc/v4p2/Plugin/UpdateChecker.php:442
+#, php-format
+msgid "Unknown update checker status \"%s\""
+msgstr ""
+
+#: includes/vendor/yahnis-elsts/plugin-update-checker/Puc/v4p2/Vcs/PluginUpdateChecker.php:85
+msgid "There is no changelog available."
+msgstr ""
+
+#: views/WPVQGR_Shortcode.php:188
+msgid "Share the quiz to show your results !"
+msgstr "Sonucu görmek için quizi paylaş !"
+
+#: views/WPVQGR_Shortcode.php:189 views/WPVQGR_Shortcode.php:255
+msgid "Share on Facebook"
+msgstr ""
+
+#: views/WPVQGR_Shortcode.php:260
+msgid "Share on Twitter"
+msgstr ""
+
+#: views/WPVQGR_Shortcode.php:289
+msgid "This quiz has been created with"
+msgstr ""
+
+#: views/WPVQGR_Shortcode.php:301
+msgid "Loading..."
+msgstr ""
+
+#: wp-viral-quiz-gr.php:265
+msgid "You must save your quiz before changing tab, please."
+msgstr ""
+
+#~ msgid "You can't do that ! Sorry."
+#~ msgstr "Bunu yapamazsın ! Üzgünüz."
+
+#~ msgid "Error during quiz deletion."
+#~ msgstr "Quiz silinirken hata oluştu."
+
+#~ msgid "This quiz doesn't exist."
+#~ msgstr "Bu quiz bulunamadı."
+
+#~ msgid "You can't do this ! Sorry."
+#~ msgstr "Bunu yapamazsın ! Üzgünüm"
+
+#~ msgid "Error during quiz duplication."
+#~ msgstr "Quiz kopyalarken hata oluştu."
+
+#~ msgid "points"
+#~ msgstr "puan"
+
+#~ msgid "Answer :"
+#~ msgstr "Cevap :"
+
+#~ msgid "Add an image to illustrate this answer"
+#~ msgstr "Cevabı daha iyi anlatmak için resim ekleyin"
+
+#~ msgid "Delete this picture"
+#~ msgstr "Bu resmi sil"
+
+#~ msgid "Do you really want to delete it ?"
+#~ msgstr "Gerçekten silmek istiyormusunuz ?"
+
+#~ msgid "Delete this answer"
+#~ msgstr "Bu cevabı sil"
+
+#~ msgid "Add a cover image to illustrate this question"
+#~ msgstr "Bu soruyu daha iyi anlatmak için resim ekleyin"
+
+#~ msgid "Add a new answer"
+#~ msgstr "Yeni cevap ekle"
+
+#~ msgid "for this question"
+#~ msgstr "bu soru için"
+
+#~ msgid "Delete this question"
+#~ msgstr "Soruyu sil"
+
+#~ msgid "Ranking"
+#~ msgstr "Sıralama"
+
+#~ msgid "Personality description :"
+#~ msgstr "Kişilik açıklaması :"
+
+#~ msgid "Delete this personality"
+#~ msgstr "Bu kişiliği sil"
+
+#~ msgid "to this question"
+#~ msgstr "bu soru için"
+
+#~ msgid "Do you want to give an explaination when people answer?"
+#~ msgstr "İnsanlar cevaplarken bir açıklama olsun mu ?"
+
+#~ msgid "Less than"
+#~ msgstr "Daha az"
+
+#~ msgid "Build a new"
+#~ msgstr "Yeni yarat"
+
+#~ msgid "Quiz has been updated."
+#~ msgstr "Quiz güncellendi."
+
+#~ msgid "What skin do you want"
+#~ msgstr "Hangi temayı istiyorsunuz "
+
+#~ msgid "The BuzzFeed Skin"
+#~ msgstr "BuzzFeed Tema"
+
+#~ msgid "A Modern Flat Skin"
+#~ msgstr "Modern Tema"
+
+#~ msgid "Custom Skin (use wpvq-custom.css in your root theme dir.)"
+#~ msgstr "Özel Tema (wpvq-custom.css kullanabilirsiniz)"
+
+#~ msgid "People have to share the quiz to see their results :"
+#~ msgstr "İnsanlar quizlerinin sonuçları için paylaşım yapmalı :"
+
+#~ msgid "Yes, they have to share on Facebook"
+#~ msgstr "Evet, Facebook üzerinde paylaşmalı"
+
+#~ msgid "Share buttons"
+#~ msgstr "Paylaşım Butonları"
+
+#~ msgid "Promote the plugin"
+#~ msgstr "Pluginin reklamını yap"
+
+#~ msgid "Capture e-mails"
+#~ msgstr "E-mail Yakala"
+
+#~ msgid "Capture names"
+#~ msgstr "İsimleri yakala"
+
+#~ msgid "Step"
+#~ msgstr "Adım"
+
+#~ msgid "Add some questions & answers to your quiz"
+#~ msgstr "Quize soru ve cevaplar ekleyin"
+
+#~ msgid ""
+#~ "You can add picture for each question and answer, it makes your quiz more "
+#~ "fun and viral."
+#~ msgstr ""
+#~ "Her soruya ve cevaba resim ekleyebilirsiniz, bu quizi daha hoş yapar."
+
+#~ msgid "Protip To Make The Perfect Quiz :"
+#~ msgstr "Mükemmel Quiz İçin Örnek :"
+
+#~ msgid ""
+#~ "If you use pictures to illustrate the answers, each picture should be at "
+#~ "least 300px * 300px."
+#~ msgstr ""
+#~ "Cevaplar için resim ekleyecekseniz, her bir resimin en az 300px * 300 px "
+#~ "olması gerekir."
+
+#~ msgid "Add a new question"
+#~ msgstr "Yeni soru ekle"
+
+#~ msgid "If you put a picture in your personality descriptions"
+#~ msgstr "Eğer kişilik açıklamasında resim kullanırsanız"
+
+#~ msgid "it will be used in the Facebook share box."
+#~ msgstr "Facebook paylaşımında gözükecek."
+
+#~ msgid "See what it means."
+#~ msgstr "Ne anlama geliyor ?"
+
+#~ msgid "Add a new personality"
+#~ msgstr "Yeni kişilik ekle"
+
+#~ msgid "An example"
+#~ msgstr "Bir Örnek"
+
+#~ msgid "for a quiz with 10 questions"
+#~ msgstr "10 Soruluk bir quiz için"
+
+#~ msgid "Less than 4 points"
+#~ msgstr "4 puandan az"
+
+#~ msgid "you are bad. Just bad."
+#~ msgstr "kötüsün. Sadece kötü."
+
+#~ msgid "Less than 8 points"
+#~ msgstr "8 puandan az"
+
+#~ msgid "Hum okay, not bad!"
+#~ msgstr "Eh, okadar kötü değil !"
+
+#~ msgid "Less than 10 points"
+#~ msgstr "10 puandan az"
+
+#~ msgid "Really nice, good game."
+#~ msgstr "Çok iyi, iyi oyun."
+
+#~ msgid "Less than 11 points"
+#~ msgstr "11 puandan az"
+
+#~ msgid "Perfect! You are a real rockstar!"
+#~ msgstr "Süper ! Gerçek bir yıldızsın."
+
+#~ msgid "Just tell us who you are to view your results !"
+#~ msgstr "Sonucu görmek için kim olduğunu söyle !"
+
+#~ msgid "Your first name :"
+#~ msgstr "İlk isminiz :"
+
+#~ msgid "Your e-mail address :"
+#~ msgstr "E-mail adresiniz :"
+
+#~ msgid "Show my results >>"
+#~ msgstr "Sonucumu göster >>"
+
+#~ msgid "Share your results"
+#~ msgstr "Sonucu paylaş"
+
+#~ msgid "You have to give your e-mail to see your results."
+#~ msgstr "Sonucu görmek için e-mail adresinizi girmelisiniz."
+
+#~ msgid "You have to give your nickname to see your results."
+#~ msgstr "Sonucu görmek için adınızı girmelisiniz."
+
+#~ msgid "Title"
+#~ msgstr "Başlık"
+
+#~ msgid "You haven't created any quiz yet !"
+#~ msgstr "Hiç quiz oluşturmadınız !"
+
+#~ msgid "Total"
+#~ msgstr "Toplam"
+
+#~ msgid "players"
+#~ msgstr "oyuncu"
+
+#~ msgid "Anonymous"
+#~ msgstr "Anonim"
+
+#~ msgid "%s ago"
+#~ msgstr "%s önce"
+
+#~ msgid "No one has played this quiz yet!"
+#~ msgstr "Bu quizi kimse oynamadı !"
+
+#~ msgid "Quiz has been duplicated."
+#~ msgstr "Quiz kopyalandı."
+
+#~ msgid "Quiz has been removed."
+#~ msgstr "Quiz silindi"
+
+#~ msgid "A new quiz has been created."
+#~ msgstr "Yeni quiz oluşturuldu."
+
+#~ msgid "Author"
+#~ msgstr "Yazar"
+
+#~ msgid "Last Update"
+#~ msgstr "Son Güncelleme"
+
+#~ msgid "Update"
+#~ msgstr "Güncelle"
+
+#~ msgid "Duplicate"
+#~ msgstr "Kopyala"
+
+#~ msgid "Delete"
+#~ msgstr "Sil"
+
+#~ msgid "Examples : "
+#~ msgstr "Örnekler :"
+
+#~ msgid "Players"
+#~ msgstr "Oyuncular"
+
+#~ msgid "Don't use Facebook API"
+#~ msgstr "Facebook API kullanma"
+
+#~ msgid "Enable Auto Update"
+#~ msgstr "Otomatik Güncelleme izin"
+
+#~ msgid "Your Envato Purchase Code :"
+#~ msgstr "Envato"
+
+#~ msgid "Go back to personalities"
+#~ msgstr "Kişiliklere Dön"
+
+#~ msgid "step"
+#~ msgstr "adım"
+
+#~ msgid "Save this quiz"
+#~ msgstr "Quizi Kaydet"
+
+#~ msgid "True/False Quiz"
+#~ msgstr "Doğru/Yanlış testi"
+
+#~ msgid "Type your quiz name here"
+#~ msgstr "Quiz ismini buraya yazın"
+
+#~ msgid "Let's go to build the quiz"
+#~ msgstr "Haydi quizi oluşturalım"
+
+#~ msgid "Quiz results depending on the score (optional)"
+#~ msgstr "Quiz sonuçları skora göre (opsiyonel)"
+
+#~ msgid "Global options : configure the quiz"
+#~ msgstr "Genel ayarlar : quizi ayarla"
+
+#~ msgid "Choose a quiz :"
+#~ msgstr "Quiz seç :"
+
+#~ msgid "People have to give their e-mail to see their results"
+#~ msgstr "İnsanlar sonuçları görmek için E-mail adreslerini girsin"
+
+#~ msgid "People have to give their first name to see their results"
+#~ msgstr "İnsanlar sonuçları görmek için isimlerini girsin"
+
+#~ msgid "This player doesn't exist."
+#~ msgstr "Bu kişi bulunamadı."
+
+#~ msgid ""
+#~ "You got <span class=\"wpvq-score\"></span> out of <span class=\"wpvq-total"
+#~ "\">%s</span> right!"
+#~ msgstr ""
+#~ "<span class=\"wpvq-total\">%s</span> sorudan <span class=\"wpvq-score\"></"
+#~ "span> tanesi doğru !"
+
+#~ msgid "You are :"
+#~ msgstr "Sonuç : "
+
+#~ msgid "I'm %s ! And you ? %s"
+#~ msgstr "Sonuç %s ! Ya sen ? %s"
+
+#~ msgid "I'm %s ! And you ?"
+#~ msgstr "Sonuç %s !"
+
+#~ msgid "Most common result"
+#~ msgstr "Most Sonuçlar"
+
+#~ msgid "Click here to show your results !"
+#~ msgstr "Sonucu görmek için tıkla !"
+
+#~ msgid "What personality does it represent : "
+#~ msgstr "Hangi kişiliği anlatıyor :"
+
+#~ msgid "Try this : %s"
+#~ msgstr "Bunu dene: %s"
+
+#~ msgid "I got %s out of %d on %s"
+#~ msgstr "%s doğru %d üzerinden %s "

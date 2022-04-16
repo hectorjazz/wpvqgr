@@ -1,0 +1,134 @@
+/**
+ * Hide fields
+ */
+
+.wpvqgr-hidden-field {
+    display: none;
+}
+
+/**
+ * Welcome page
+ */
+
+.wpvqgr-welcome {
+  margin-top:30px;
+}
+
+/**
+ * Quiz builder
+ */
+
+/**
+ * Hide preview and stuff about visiblity...
+ */
+body.post-type-wpvqgr_quiz_perso .row-actions span.view,
+body.post-type-wpvqgr_quiz_trivia .row-actions span.view,
+
+body.post-type-wpvqgr_quiz_perso #minor-publishing-actions,
+body.post-type-wpvqgr_quiz_trivia #minor-publishing-actions,
+
+body.post-type-wpvqgr_quiz_perso #misc-publishing-actions,
+body.post-type-wpvqgr_quiz_trivia #misc-publishing-actions,
+
+body.post-type-wpvqgr_quiz_perso .updated a,
+body.post-type-wpvqgr_quiz_trivia .updated a,
+
+body.post-type-wpvqgr_quiz_perso #preview-action,
+body.post-type-wpvqgr_quiz_trivia #preview-action {
+    display: none !important;
+}
+
+span.wpvqgr-tiny-notice {
+    color:#c0392b;
+    font-size:.85em;
+}
+
+#carbon_fields_container_wpvq_quiz_perso_builder .carbon-actions .carbon-button,
+#carbon_fields_container_wpvq_quiz_trivia_builder .carbon-actions .carbon-button {
+    text-align: center;
+    padding:10px;
+}
+
+/* answers */
+.carbon-drag-handle  {
+    border-top-right-radius:5px;
+    border-top-left-radius:5px;
+    background:#3498db !important;
+    color:white !important;
+}
+
+/* questions */
+.carbon-group-actions-tabbed-vertical, .carbon-group-actions-tabbed-horizontal {
+    border-bottom-right-radius:5px;
+    border-bottom-left-radius:5px;
+    background:#3498db !important;
+    color:white !important;
+}
+
+.carbon-drag-handle .group-number {
+    border-right:1px solid #2980b9 !important
+}
+
+.carbon-groups-holder .carbon-group-actions a {
+    color:white !important;
+}
+
+#carbon_fields_container_wpvq_quiz_perso_builder .carbon-actions .carbon-button a.button,
+#carbon_fields_container_wpvq_quiz_trivia_builder .carbon-actions .carbon-button a.button {
+    background:#3498db !important;
+    color:white !important;
+    border:0;
+    text-align: center;
+    height:auto !important;
+    padding:5px 20px;
+    font-size:1em;
+}
+
+.wpvqgr-handler-answer .carbon-groups-holder.ui-sortable .carbon-drag-handle {
+    background:#bdc3c7 !important;
+    color:black;
+}
+
+.wpvqgr-handler-answer .carbon-groups-holder.ui-sortable .carbon-drag-handle .group-number {
+    border-right:1px solid #95a5a6 !important
+}
+
+#carbon_fields_container_wpvq_quiz_perso_builder .wpvqgr-handler-answer .carbon-actions .carbon-button a.button,
+#carbon_fields_container_wpvq_quiz_trivia_builder .wpvqgr-handler-answer .carbon-actions .carbon-button a.button {
+    background:#bdc3c7 !important;
+}
+
+/**
+ * Quiz Meta (users)
+ */
+
+span.wpvqgr-excerpt-tab {
+    font-size: .7em;
+    color: #999;
+    margin-left: 5px;
+    font-weight: normal;
+    line-height: 90% !important;
+}
+
+div[class^='carbon-field carbon-text wpvqgr-data-answer-type-'], div[class^='carbon-field carbon-select wpvqgr-data-answer-type-']  {
+	display: none;
+}
+
+div.wpvqgr-data-answer-type-choice {
+	display: block;
+}
+
+/**
+ * User Meta
+ */
+
+.post-type-wpvqgr_user .carbon-subcontainer>.carbon-empty-row-visible,
+.post-type-wpvqgr_user .cf-complex__inserter,
+.post-type-wpvqgr_user .cf-complex__group-actions,
+.post-type-wpvqgr_user ul.subsubsub .publish,
+.post-type-wpvqgr_user .misc-pub-section.misc-pub-post-status, 
+.post-type-wpvqgr_user .misc-pub-section.misc-pub-visibility,
+.post-type-wpvqgr_user #preview-action,
+.post-type-wpvqgr_user #publishing-action input#publish {
+	display: none !important;
+}
