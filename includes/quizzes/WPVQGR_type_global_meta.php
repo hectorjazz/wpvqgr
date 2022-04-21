@@ -73,9 +73,9 @@ class WPVQGR_type_global_meta
 			        'modern' => __('The Modern Flat Skin', 'wpvq'),
 			    )),
 
-			Field::make( 'checkbox', 'wpvqgr_settings_saveanswers', __("Save every players' answers and score ?", 'wpvq') )
-			->set_help_text( __('You can find all results saved in the <a href="edit.php?post_type=wpvqgr_user" target="_blank">Users submenu</a>.', 'wpvq') )
-			->set_option_value( 'yes' ),
+			// Field::make( 'checkbox', 'wpvqgr_settings_saveanswers', __("Save every players' answers and score ?", 'wpvq') )
+			// ->set_help_text( __('You can find all results saved in the <a href="edit.php?post_type=wpvqgr_user" target="_blank">Users submenu</a>.', 'wpvq') )
+			// ->set_option_value( 'yes' ),
 
 			Field::make( 'checkbox', 'wpvqgr_settings_randomquestions', __('Display Random Questions ?', 'wpvq') )
 			->set_width( 50 )

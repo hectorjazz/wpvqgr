@@ -1,23 +1,23 @@
 <?php
 
-class WPVQGR_type_user
+class WPVQGR_type_draw
 {
 	static public function create_wordpress_type() 
 	{
 		$labels = array(
-			'name'                  => _x( 'Quiz Users', 'Post Type General Name', 'wpvq' ),
-			'singular_name'         => _x( 'User', 'Post Type Singular Name', 'wpvq' ),
-			'menu_name'             => __( 'Users', 'wpvq' ),
+			'name'                  => _x( 'Quiz Draws', 'Post Type General Name', 'wpvq' ),
+			'singular_name'         => _x( 'Draw', 'Post Type Singular Name', 'wpvq' ),
+			'menu_name'             => __( 'Draw', 'wpvq' ),
 			'name_admin_bar'        => __( 'Post Type', 'wpvq' ),
 			'archives'              => __( 'Item Archives', 'wpvq' ),
 			'attributes'            => __( 'Item Attributes', 'wpvq' ),
 			'parent_item_colon'     => __( 'Parent Item:', 'wpvq' ),
-			'all_items'             => __( 'All Users', 'wpvq' ),
-			'add_new_item'          => __( 'Create a New User', 'wpvq' ),
-			'add_new'               => __( 'Create New User', 'wpvq' ),
-			'new_item'              => __( 'New User', 'wpvq' ),
-			'edit_item'             => __( 'Edit User', 'wpvq' ),
-			'update_item'           => __( 'Update User', 'wpvq' ),
+			'all_items'             => __( 'All Draw', 'wpvq' ),
+			'add_new_item'          => __( 'Create a New Draw', 'wpvq' ),
+			'add_new'               => __( 'Create New Draw', 'wpvq' ),
+			'new_item'              => __( 'New Draw', 'wpvq' ),
+			'edit_item'             => __( 'Edit Draw', 'wpvq' ),
+			'update_item'           => __( 'Update Draw', 'wpvq' ),
 			'view_item'             => __( 'View Item', 'wpvq' ),
 			'view_items'            => __( 'View Items', 'wpvq' ),
 			'search_items'          => __( 'Search Item', 'wpvq' ),
@@ -35,8 +35,8 @@ class WPVQGR_type_user
 		);
 
 		$args = array(
-			'label'                 => __( 'User', 'wpvq' ),
-			'description'           => __( 'An user', 'wpvq' ),
+			'label'                 => __( 'Draw', 'wpvq' ),
+			'description'           => __( 'A draw', 'wpvq' ),
 			'labels'                => $labels,
 			'supports'              => array('title'),
 			'hierarchical'          => false,
@@ -56,22 +56,22 @@ class WPVQGR_type_user
 			),
 		  	'map_meta_cap' => true,
 		);		
-		register_post_type( 'wpvqgr_user', $args );
-		add_filter( 'enter_title_here', 'WPVQGR_type_user::change_default_title' );
-		add_filter( 'gettext', 'WPVQGR_type_user::change_publish_button', 10, 2 );
+		register_post_type( 'wpvqgr_draw', $args );
+		add_filter( 'enter_title_here', 'WPVQGR_type_draw::change_default_title' );
+		add_filter( 'gettext', 'WPVQGR_type_draw::change_publish_button', 10, 2 );
 	}
 
 	static public function change_default_title($title) 
 	{
 		$screen = get_current_screen();
-		if  ( 'wpvqgr_user' == $screen->post_type ) {
-			$title = "User's ID";
+		if  ( 'wpvqgr_draw' == $screen->post_type ) {
+			$title = "Draw's ID";
 		}
 		return $title;
 	}
 
 	static public function change_publish_button( $translation, $text ) {
-	    if ( 'wpvqgr_user' == get_post_type() && ($text == 'Publish' || $text == 'Update') ) {
+	    if ( 'wpvqgr_draw' == get_post_type() && ($text == 'Publish' || $text == 'Update') ) {
 	        return 'Save';
 	    } else {
 	        return $translation;
@@ -83,7 +83,7 @@ class WPVQGR_type_user
 	 */
 	public static function add_submenu()
 	{
-		add_submenu_page( 'wpvqgr-main', __( 'Users', 'wpvq' ), __( 'Users', 'wpvq' ), 'manage_options', 'edit.php?post_type=wpvqgr_user', NULL );
+		add_submenu_page( 'wpvqgr-main', __( 'Draws', 'wpvq' ), __( 'Draws', 'wpvq' ), 'manage_options', 'edit.php?post_type=wpvqgr_draw', NULL );
 	}
 
 	/**
@@ -92,24 +92,24 @@ class WPVQGR_type_user
 	static public function create_wordpress_tag() 
 	{
 		$labels = array(
-			'name' => __( 'Quiz Tag', 'taxonomy general name' ),
-			'singular_name' => __( 'Quiz Tag', 'taxonomy singular name' ),
-			'search_items' =>  __( 'Search Quiz Tags' ),
-			'popular_items' => __( 'Popular Quiz Tags' ),
-			'all_items' => __( 'All Quiz Tags' ),
+			'name' => __( 'Draw Tag', 'taxonomy general name' ),
+			'singular_name' => __( 'Draw Tag', 'taxonomy singular name' ),
+			'search_items' =>  __( 'Search Draw Tags' ),
+			'popular_items' => __( 'Popular Draw Tags' ),
+			'all_items' => __( 'All Draw Tags' ),
 			'parent_item' => null,
 			'parent_item_colon' => null,
-			'edit_item' => __( 'Edit Quiz Tag' ), 
-			'update_item' => __( 'Update Quiz Tag' ),
-			'add_new_item' => __( 'Add New Quiz Tag' ),
-			'new_item_name' => __( 'New Quiz Tag' ),
-			'separate_items_with_commas' => __( 'Separate Quiz Tags with commas' ),
-			'add_or_remove_items' => __( 'Add or remove Quiz Tags' ),
-			'choose_from_most_used' => __( 'Choose from the most used quiz tags' ),
-			'menu_name' => __( 'Quiz Tags' ),
+			'edit_item' => __( 'Edit Draw Tag' ), 
+			'update_item' => __( 'Update Draw Tag' ),
+			'add_new_item' => __( 'Add New Draw Tag' ),
+			'new_item_name' => __( 'New Draw Tag' ),
+			'separate_items_with_commas' => __( 'Separate Draw Tags with commas' ),
+			'add_or_remove_items' => __( 'Add or remove Draw Tags' ),
+			'choose_from_most_used' => __( 'Choose from the most used draw tags' ),
+			'menu_name' => __( 'Draw Tags' ),
 		); 
-		 
-		register_taxonomy('wpvqgr_tag1', 'wpvqgr_user', array(
+
+		$ret = register_taxonomy('wpvqgr_tag2', 'wpvqgr_draw', array(
 			'hierarchical' => false,
 			'labels' => $labels,
 			'show_ui' => false,

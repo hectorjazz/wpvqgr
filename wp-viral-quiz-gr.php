@@ -31,6 +31,11 @@ require_once 'includes/users/WPVQGR_type_user.php';
 require_once 'includes/users/WPVQGR_type_user_meta.php';
 require_once 'includes/users/WPVQGR_User.php';
 
+// Draws
+require_once 'includes/draws/WPVQGR_type_draw.php';
+require_once 'includes/draws/WPVQGR_type_draw_meta.php';
+require_once 'includes/draws/WPVQGR_Draw.php';
+
 // Model
 require_once 'includes/WPVQGR_Random.php';
 require_once 'includes/WPVQGR_Quiz.php';
@@ -75,6 +80,11 @@ class WPViralQuizGR {
 		add_action( 'init', array('WPVQGR_type_user', 'create_wordpress_type'), 0);
 		add_action( 'init', array('WPVQGR_type_user', 'create_wordpress_tag'), 0);
 		add_action( 'admin_menu', array('WPVQGR_type_user', 'add_submenu'));
+
+		add_action( 'init', array('WPVQGR_type_draw', 'create_wordpress_type'), 0);
+		add_action( 'init', array('WPVQGR_type_draw', 'create_wordpress_tag'), 0);
+		add_action( 'admin_menu', array('WPVQGR_type_draw', 'add_submenu'));
+
 
 		// Custom script JS
 		add_action( 'admin_enqueue_scripts', array($this, 'load_scripts_bo'));
@@ -236,6 +246,8 @@ class WPViralQuizGR {
 		new WPVQGR_type_perso_meta();
 		// Users
 		new WPVQGR_type_user_meta();
+		// Draws
+		new WPVQGR_type_draw_meta();
 		// Ajax
 		new WPVQGR_ajax_controller();
 		// Hooks

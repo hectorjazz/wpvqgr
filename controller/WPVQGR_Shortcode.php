@@ -89,7 +89,7 @@ class WPVQGR_Shortcode {
 		}
 
 		// Fetch tag
-		$tag = get_term_by('slug', 'quiz-' . $param['id'], 'wpvqgr_tag');
+		$tag = get_term_by('slug', 'quiz-' . $param['id'], 'wpvqgr_tag1');
 		if ($tag) {
 			$count = $tag->count;
 		}

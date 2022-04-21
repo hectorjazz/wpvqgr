@@ -62,6 +62,14 @@ var wpvqgr = wpvqgr || {};
 
 			// Not a visual class, just marked as
 			$answer.addClass('wpvqgr-is-selected-answer');
+
+			// if(document.getElementById("wpvqgr-login-user-id").value == "0"){
+			// 	if(jQuery("#wpvqgr-login-user-button").length == 1){
+			// 		jQuery("#wpvqgr-login-user-button").click();
+			// 	}else{
+			// 		alert("Please login to submit result.");
+			// 	}
+			// }
 		};
 
 		wpvqgr.computeResults = function()

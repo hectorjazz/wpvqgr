@@ -51,6 +51,16 @@
 
 		<div id="wpvqgr-<?php echo $wpvqgr_quiz->getId(); ?>" class="wpvqgr <?php echo $wpvqgr_quiz->getType(); ?>">
 
+			<div style="display:none;" id="ajax-login-plugin-buttons">
+				<div class="login-modal-ajax">
+					<button class="lrm-login lrm-hide-if-logged-in" id="wpvqgr-login-user-button">Login</button>	
+				</div>
+				<div class="login-with-ajax">
+					<?php
+					echo do_shortcode('[lwa template="modal"]');	
+					?>
+				</div>
+			</div>
 			<div class="wpvqgr-a-d-s">
 				<?php echo do_shortcode($wpvqgr_quiz->getSetting('global_ads_before')); ?>
 				<?php echo do_shortcode($wpvqgr_quiz->getSetting('ads_before')); ?>
@@ -273,6 +283,80 @@
 								<div class="wpvqgr-quiz-name"><?php echo stripslashes($wpvqgr_quiz->getName()); ?></div>
 								<h3><?php echo $wpvqgr_quiz->getSetting('global_template_result'); ?></h3>
 								<div class="wpvqgr-result-description">%%description%%</div>
+							</div>
+
+							<div class="wpvqgr-top-result" style="position:relative;">
+								<button id="ajax-register-draw-btn" type="button" class="wpvqgr-button wpvqgr-register-draw" style="background:#f39406;"><i class="fa fa-trophy"></i>&nbsp;Register in Draw</button>
+
+								<div id="ajax-register-login-modal" style="display:none; border: 1px solid; border-radius: 5px; padding: 10px; position: absolute; background: white; z-index: 10; width: calc(100% - 40px); top:-30px; left:10px;">
+									<div>Please login to register result in draw.</div>
+									<div style="display: flex; align-items:center; justify-content: space-around;padding: 10px;width: 100%;">
+										<button onclick="wpvqrg_register_draw_login()">Login</button>
+										<button onclick="wpvqrg_register_draw_cancel()">Cancel</button>
+									</div>
+								</div>
+
+								<script>
+									jQuery("#ajax-register-draw-btn").on("click", function(){
+										console.log("draw click event:");
+										if(document.body.classList.contains( 'logged-in' )){
+											wpvqrg_draw_result_submit();
+										}else{
+											jQuery("#ajax-register-login-modal").show();
+										}
+									});
+
+									var register_draw_login_waiting = 0;
+
+									function wpvqrg_register_draw_login(){
+										jQuery('#ajax-login-plugin-buttons .login-with-ajax button').trigger('click');
+										clearInterval(register_draw_login_waiting);
+										register_draw_login_waiting = setInterval(function(){
+											if(document.body.classList.contains( 'logged-in' )){
+												console.log("login - success");
+												clearInterval(register_draw_login_waiting);
+												jQuery("#ajax-register-login-modal").hide();
+
+												wpvqrg_draw_result_submit();
+											}else{
+												console.log("login - wait");
+											}
+										}, 500);
+									}
+
+									function wpvqrg_register_draw_cancel(){
+										jQuery("#ajax-register-login-modal").hide();
+										clearInterval(register_draw_login_waiting);
+									}
+
+									function wpvqrg_draw_result_submit(){
+
+										console.log("wpvqrg_draw_result_submit:");
+
+										var data 		=  {};
+										var callback 	= function(){
+											jQuery("#ajax-register-draw-btn").html('<i class="fa fa-trophy"></i>&nbsp;Registered in Draw');
+											jQuery("#ajax-register-draw-btn").css('background', '#A9BBAD ');
+										};
+
+										// Trigger Custom Event
+										// jQuery( document ).trigger( "wpvqgr-askInfo", [ wpvqgr.vars.quiz ] );
+
+										// Save form data to WP database
+
+										// if (wpvqgr.vars.quiz.settings.askinfo_localsave === true) {
+
+											if (wpvqgr.vars.quiz.settings.saveanswers != true) {
+												wpvqgr.ajaxSaveAnswers(function(){});
+											}
+
+											wpvqgr.ajaxSaveInfo(data, callback);
+										// } else {
+										// 	callback();
+										// }
+										jQuery("#ajax-register-draw-btn").attr("disabled","disabled");
+									}
+								</script>
 							</div>
 
 							<div class="wpvqgr-additional-results">

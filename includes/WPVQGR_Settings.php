@@ -110,7 +110,7 @@ class WPVQGR_Settings
 
 			Field::make( 'text', 'wpvqgr_quiz_perso_template_twitter', __('Content for Twitter :', 'wpvq') )
 			->set_default_value(__("I'm %%personality%%, and you ?", 'wpvq')),
-
+ 
 			Field::make( 'text', 'wpvqgr_quiz_perso_template_facebook_title', __('Content for Facebook Title :', 'wpvq') )
 			->set_default_value(__("I'm %%personality%%, and you ?", 'wpvq')),
 
@@ -126,6 +126,12 @@ class WPVQGR_Settings
 		->add_tab( __('Under the hood', 'wpvq'), array
 		(
 			Field::make( 'textarea', 'wpvqgr_custom_css', __('Custom CSS code', 'wpvq')),
+		))
+		->add_tab( __('Draw', 'wpvq'), array
+		(
+			Field::make( 'text', 'wpvqgr_entrant_count', __('Total number of entrants', 'wpvq') )
+			->set_help_text(__("Once the total number of entrants is reached, the draw closes and a new one begins, a winner is randomly selected and a congratulatory email is sent.", 'wpvq'))
+			->set_attribute('placeholder', '100'),
 		));
 		
 	}

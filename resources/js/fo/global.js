@@ -211,9 +211,11 @@ var wpvqgr = wpvqgr || {};
 
 			// Ending Hook
 			wpvqgr.ajaxEndQuiz(function(){});
+			console.log("Ending Hook:");
 
 			// Save Answers
 			if (wpvqgr.vars.quiz.settings.saveanswers === true) {
+				console.log("save answers:");
 				wpvqgr.ajaxSaveAnswers(function(){});
 			}
 
