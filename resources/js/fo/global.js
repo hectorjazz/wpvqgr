@@ -213,11 +213,25 @@ var wpvqgr = wpvqgr || {};
 			wpvqgr.ajaxEndQuiz(function(){});
 			console.log("Ending Hook:");
 
-			// Save Answers
-			if (wpvqgr.vars.quiz.settings.saveanswers === true) {
-				console.log("save answers:");
-				wpvqgr.ajaxSaveAnswers(function(){});
-			}
+			// // Save Answers
+			// if (wpvqgr.vars.quiz.settings.saveanswers === true) {
+			// 	console.log("save answers:");
+			// 	wpvqgr.ajaxSaveAnswers(function(){});
+			// }
+
+			// auto save result
+			wpvqgr.ajaxCheckInDraw({}, function(ret){
+				if(ret == "yes"){
+					jQuery(".wpvqgr-show-register").hide();
+					jQuery("#ajax-register-draw-btn").hide();
+					wpvqgr.ajaxSaveInfo({},function(){
+							wpvqgr.ajaxSaveAnswers(function(){});
+					});
+				}else if(ret == 'no'){
+					jQuery(".wpvqgr-show-register").show();
+					jQuery("#ajax-register-draw-btn").show();
+				}
+			});
 
 			wpvqgr.vars.page++;
 			wpvqgr.updateProgressBar();
@@ -428,7 +442,16 @@ var wpvqgr = wpvqgr || {};
 				 'quiz_id' : wpvqgr.vars.quiz.general.id
 			 }, callback);
 		 };
- 
+
+		 wpvqgr.ajaxCheckInDraw = function(data, callback) 
+		 {
+			 $.post(wpvqgr.vars.ajaxurl, {
+				 'action': 'wpvqgr_check_in_draw',
+				 'wpvqgr_nounce': wpvqgr.vars.nounce,
+				 'data': $( ".wpvqgr-askinfo form" ).serialize(),
+				 'quiz_id' : wpvqgr.vars.quiz.general.id
+			 }, callback);
+		 };
 
 
 		/**

@@ -214,7 +214,7 @@ function wpvqrg_register_in_draw_login(){
 
 			wpvqrg_register_in_draw();
 		}else{
-			console.log("login - wait");
+			// console.log("login - wait");
 		}
 	}, 500);
 }
@@ -230,7 +230,9 @@ function wpvqrg_register_in_draw(){
 
 	var data 		=  {};
 	var callback1 	= function(){
-		console.log("ajax register called")
+		wpvqgr.ajaxSaveAnswers(function(){
+			console.log("ajax register called")
+		});
 	};
 	wpvqgr.ajaxRegisterInDraw(data, callback1);
 	jQuery("#ajax-register-draw-btn").hide();

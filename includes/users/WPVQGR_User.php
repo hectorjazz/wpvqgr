@@ -25,7 +25,7 @@ class WPVQGR_User
 		if($latest_draw->have_posts()){
 			$current_draw_id = $latest_draw->posts[0]->ID;
 		}else{
-			return false;
+			return 0;
 		}
 
 		$args1 = array( 
@@ -50,9 +50,16 @@ class WPVQGR_User
 
 		$take_info = new WP_Query( $args1 );
 		if($take_info->have_posts()){
-			return true;
+			$current_draw_state = get_post_meta($current_draw_id, '_wpvqgr_draw_state', true);
+			if($current_draw_state == 'closed'){
+				return 2;// reached limit and registered
+			}else if($current_draw_state == 'open'){
+				return 1;// still open and registered
+			}else{
+				return 0;
+			}
 		}
-		return false;
+		return 0;//
 	}
 
 	public function getId() {

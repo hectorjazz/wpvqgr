@@ -13,6 +13,9 @@ class WPVQGR_ajax_controller
 		add_action( 'wp_ajax_wpvqgr_register_in_draw', array($this, 'register_in_draw') );
 		add_action( 'wp_ajax_nopriv_wpvqgr_register_in_draw', array($this, 'register_in_draw') );
 
+		add_action( 'wp_ajax_wpvqgr_check_in_draw', array($this, 'check_in_draw') );
+		add_action( 'wp_ajax_nopriv_wpvqgr_check_in_draw', array($this, 'check_in_draw') );
+
 		add_action( 'wp_ajax_wpvqgr_add_user_info', array($this, 'add_user_info') );
 		add_action( 'wp_ajax_nopriv_wpvqgr_add_user_info', array($this, 'add_user_info') );
 
@@ -93,6 +96,10 @@ class WPVQGR_ajax_controller
 
 		add_post_meta($this->user_id, "_wpvqgr_draw_meta_id_value", $this->draw_id);
 		add_post_meta($this->user_id, "_wpvqgr_user_meta_id_value", $user->data->ID);
+		add_post_meta($this->user_id, "_wpvqgr_draw_meta_number_value", $this->draw_number);
+
+		carbon_set_post_meta( $this->user_id, 'wpvqgr_draw_metas[0]/' . 'wpvqgr_draw_meta_key', 'Draw Number' );
+		carbon_set_post_meta( $this->user_id, 'wpvqgr_draw_metas[0]/' . 'wpvqgr_draw_meta_value', $this->draw_number );
 
 		// $this->nb_fields = 0;
 		carbon_set_post_meta( $this->user_id, 'wpvqgr_user_metas[0]/' . 'wpvqgr_user_meta_key', "User Name" );
@@ -115,6 +122,8 @@ class WPVQGR_ajax_controller
 
 		// $this->add_draw_entrant();
 
+		$this->nb_steps = 0;
+
 		// Sync session
 		$this->synchronize_session('upload');
 
@@ -129,7 +138,7 @@ class WPVQGR_ajax_controller
 			die ( 'Not authorized.');
 		}
 
-		if(WPVQGR_User::register_in_draw($user->data->ID)){
+		if(WPVQGR_User::register_in_draw($user->data->ID) == 1){
 			die ('Already Registered!');
 		}
 
@@ -142,6 +151,14 @@ class WPVQGR_ajax_controller
 		$ret1 = carbon_get_post_meta( $this->draw_id, 'wpvqgr_draw_metas[1]/' . 'wpvqgr_draw_meta_value');
 		if($ret1 > 0){
 			$current_draw_total_entrant = $ret1;
+		}
+
+		if($draw_total_entrant_setting == $current_draw_total_entrant){
+			$draw_state = get_post_meta($this->draw_id, '_wpvqgr_draw_state', true);
+			if($draw_state == "closed"){
+				$this->create_new_draw();
+				$current_draw_total_entrant = 0;
+			}
 		}
 
 		if($draw_total_entrant_setting > $current_draw_total_entrant){
@@ -159,8 +176,6 @@ class WPVQGR_ajax_controller
 
 			// add_post_meta( $this->user_id, '_wpvqgr_draw_meta_id_value', $this->draw_id);
 
-			carbon_set_post_meta( $this->user_id, 'wpvqgr_draw_metas[0]/' . 'wpvqgr_draw_meta_key', 'Draw Number' );
-			carbon_set_post_meta( $this->user_id, 'wpvqgr_draw_metas[0]/' . 'wpvqgr_draw_meta_value', $this->draw_number );
 			carbon_set_post_meta( $this->user_id, 'wpvqgr_draw_metas[1]/' . 'wpvqgr_draw_meta_key', 'Regiser Order' );
 			carbon_set_post_meta( $this->user_id, 'wpvqgr_draw_metas[1]/' . 'wpvqgr_draw_meta_value', $current_draw_total_entrant );
 
@@ -212,9 +227,22 @@ class WPVQGR_ajax_controller
 				'ID'           => $this->draw_id,
 				'post_title'   => 'Draw ' . $this->draw_number,
 			));	
-	
-			$this->create_new_draw();
+
+			update_post_meta($this->draw_id, '_wpvqgr_draw_state', 'closed');
 		}
+	}
+
+	public function check_in_draw(){
+
+		$user = wp_get_current_user();
+		if(!$user || $user->ID == 0){
+			die ( 'Not authorized.');
+		}
+
+		if(WPVQGR_User::register_in_draw($user->data->ID) == 1){
+			die('yes');
+		}
+		die('no');
 	}
 
 	/**
@@ -228,9 +256,14 @@ class WPVQGR_ajax_controller
 		) {
  			die ( 'Not authorized.');
  		}
-
+		$user = wp_get_current_user();
+		if(!($user && $user->ID > 0)){
+			die ( 'Not authorized.');
+		}
+ 
  		if ($this->user_id == 0) {
 			$this->create_user( (int)$_POST['quiz_id'] );
+			$this->add_user_info();
 		}
 
 		// Save every answers
@@ -301,11 +334,60 @@ class WPVQGR_ajax_controller
 		));
 
 		$user = wp_get_current_user();
+		$title = "User ". $this->draw_number;
+
+		if($register_number == ""){
+			//get latest answer value
+			$args1 = array( 
+				'post_type'      => 'wpvqgr_user',
+				'post_status'    => 'publish',
+				'posts_per_page' => 1,
+				'orderby'        => 'date',
+				'order'          => 'DESC', // in OP you're using ASC which will get earliest not latest.
+				'no_found_rows'  => true,   // optimize query since no pagination .needed.
+				'meta_query'     => array(
+					'relation' => 'AND',
+					array(
+						'key'      => '_wpvqgr_draw_meta_id_value',
+						'value'    =>  $this->draw_id,
+						'compare'  => '=',
+					),
+					array(
+						'key'      => '_wpvqgr_user_meta_id_value',
+						'value'    =>  $user->data->ID,
+						'compare'  => '=',
+					),
+					array(
+						'key'      => '_wpvqgr_draw_meta_number_value',
+						'value'    =>  $this->draw_number,
+						'compare'  => '=',
+					),
+				),
+			);
+
+			$last_answer_info = new WP_Query( $args1 );
+			if($last_answer_info->have_posts()){
+				$last_answer_post_id = $last_answer_info->posts[0]->ID;
+
+				$last_register_order_value = get_post_meta($last_answer_post_id, '_wpvqgr_draw_meta_register_order_value')[0];
+				$last_register_order_answer_value = get_post_meta($last_answer_post_id, '_wpvqgr_draw_meta_register_order_answer_value')[0];
+
+				$title = $title . "-" .$last_register_order_value."-".($last_register_order_answer_value + 1).($user? ' ('.$user->data->user_nicename.') ' : " ");
+
+				add_post_meta( $this->user_id, '_wpvqgr_draw_meta_register_order_value', $last_register_order_value);
+				add_post_meta( $this->user_id, '_wpvqgr_draw_meta_register_order_answer_value', $last_register_order_answer_value + 1);
+			}
+		}else{
+			$title = $title . "-" . $register_number ."-1 ". ($user? ' ('.$user->data->user_nicename.') ' : " ");
+
+			add_post_meta( $this->user_id, '_wpvqgr_draw_meta_register_order_value', $register_number);
+			add_post_meta( $this->user_id, '_wpvqgr_draw_meta_register_order_answer_value', 1);
+		}
 
 		// Change User Title
 		wp_update_post( array(
 			'ID'           => $this->user_id,
-			'post_title'   => 'User '.$this->draw_number. ($register_number? "-".$register_number : "") ." ".($user? '('.$user->data->user_nicename.') ' : " "),
+			'post_title'   => $title,
 	    ));
 
 	    wp_set_object_terms( $this->user_id, 'Quiz #' . $tag, 'wpvqgr_tag1' );
@@ -320,6 +402,8 @@ class WPVQGR_ajax_controller
 			'comment_status'  =>  'closed',
 			'ping_status' 	 =>  'closed',
 		));
+		add_post_meta($this->draw_id, '_wpvqgr_draw_state', 'open', true);
+
 		$this->draw_number = intval($this->draw_number) + 1;
 		add_post_meta($this->draw_id, "_wpvqgr_draw_number_value", $this->draw_number);
 

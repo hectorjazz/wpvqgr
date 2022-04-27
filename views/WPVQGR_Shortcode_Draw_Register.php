@@ -1,4 +1,4 @@
-<div class="wpvqgr-show-register" style="position:relative;">
+<div class="wpvqgr-show-register" style="position:relative; <?php echo $show_register?"":"display:none;"; ?>">
 	<button id="ajax-register-draw-btn" type="button" class="wpvqgr-button wpvqgr-register-draw" style="background:#f39406;"><i class="fa fa-trophy"></i>&nbsp;Register in Draw</button>
 
 	<div id="ajax-register-login-modal" style="display:none; border: 1px solid; border-radius: 5px; padding: 10px; position: absolute; background: white; z-index: 10; width: calc(100% - 40px); top:-30px; left:10px;">
