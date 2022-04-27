@@ -71,6 +71,30 @@ class WPVQGR_Shortcode {
 		return $output;
 	}
 
+	public static function print_shortcode_register_draw(){
+
+		$show_register = 1;
+
+		$user = wp_get_current_user();
+		if($user && $user->ID > 0){
+			$ret = WPVQGR_User::register_in_draw($user->data->ID);
+			if($ret){
+				$show_register = 0;
+			}
+		}
+
+		$output = "";
+		if($show_register == 1){
+			// View
+			$shortCode = ob_start();
+			include dirname(__FILE__) . '/../views/WPVQGR_Shortcode_Draw_Register.php';
+			$output = ob_get_contents();
+			ob_end_clean();
+		}
+
+		return $output;
+	}
+
 	/** 
 	 * Shortcode display a players counter
 	 *

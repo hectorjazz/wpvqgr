@@ -94,6 +94,7 @@ class WPViralQuizGR {
 		add_action( 'wp_footer', array('WPVQGR_Shortcode', 'print_scripts') );
 		add_shortcode( 'wpViralQuiz', array('WPVQGR_Shortcode', 'print_shortcode') );
 		add_shortcode( 'wpViralQuiz_countUsers', array('WPVQGR_Shortcode', 'print_shortcode_countusers') );
+		add_shortcode( 'wpViralQuiz_registerDraw', array('WPVQGR_Shortcode', 'print_shortcode_register_draw') );
 
 	    // i18n support
     	add_action( 'plugins_loaded', array($this, 'load_textdomain') );

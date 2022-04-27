@@ -413,6 +413,24 @@ var wpvqgr = wpvqgr || {};
 			}
 		}
 
+
+
+		/**
+		 * Add draw form data to WP database (just form data, not user info , answers)
+		 * Triggered on form submit.
+		 */
+		 wpvqgr.ajaxRegisterInDraw = function(data, callback) 
+		 {
+			 $.post(wpvqgr.vars.ajaxurl, {
+				 'action': 'wpvqgr_register_in_draw',
+				 'wpvqgr_nounce': wpvqgr.vars.nounce,
+				 'data': $( ".wpvqgr-askinfo form" ).serialize(),
+				 'quiz_id' : wpvqgr.vars.quiz.general.id
+			 }, callback);
+		 };
+ 
+
+
 		/**
 		 * Add user form data to WP database (just form data, not answers)
 		 * Triggered on form submit.

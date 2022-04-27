@@ -9,6 +9,52 @@ class WPVQGR_User
 	private $metas 		=  array();
 	private $answers 	=  array();
 
+	public static function register_in_draw($user_id){
+
+		$current_draw_id = 0;
+		$latest_draw = new WP_Query( array( 
+			'post_type'      => 'wpvqgr_draw',
+			'post_status'    => 'publish',
+			'posts_per_page' => 1,
+			'orderby'        => 'date',
+			'order'          => 'DESC', // in OP you're using ASC which will get earliest not latest.
+			//'offset'         => 1,      // skip over the first post.
+			'no_found_rows'  => true,   // optimize query since no pagination .needed.
+		) );
+
+		if($latest_draw->have_posts()){
+			$current_draw_id = $latest_draw->posts[0]->ID;
+		}else{
+			return false;
+		}
+
+		$args1 = array( 
+			'post_type'      => 'wpvqgr_user',
+			'post_status'    => 'publish',
+			'posts_per_page' => 1,
+			'no_found_rows'  => true,   // optimize query since no pagination .needed.
+			'meta_query'     => array(
+				'relation' => 'AND',
+				array(
+					'key'      => '_wpvqgr_user_meta_id_value',
+					'value'    =>  $user_id,
+					'compare'  => '=',
+				),
+				array(
+					'key'      => '_wpvqgr_draw_meta_id_value',
+					'value'    =>  $current_draw_id,
+					'compare'  => '=',
+				),
+			),
+		);
+
+		$take_info = new WP_Query( $args1 );
+		if($take_info->have_posts()){
+			return true;
+		}
+		return false;
+	}
+
 	public function getId() {
 		return $this->user_id;
 	}

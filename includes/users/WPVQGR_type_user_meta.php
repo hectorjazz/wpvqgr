@@ -12,7 +12,21 @@ class WPVQGR_type_user_meta
 
 	public function generate_fields()
 	{
-	    Container::make( 'post_meta', __( "User's Profile", 'wpvq' ) )
+	    Container::make( 'post_meta', __( "Draw's Information", 'wpvq' ) )
+	        ->where( 'post_type', '=', 'wpvqgr_user' )
+	        ->add_fields( array(
+	            Field::make( 'complex', 'wpvqgr_draw_metas', __("Registered Draw", 'wpvq') )
+	            	->set_help_text( __('This draw information has been generated when an user register in draw.', 'wpvq') )
+	                ->setup_labels( array(
+					    'plural_name' => 'draws',
+					    'singular_name' => 'draw' ))
+				    ->add_fields( array(
+				        Field::make( 'text', 'wpvqgr_draw_meta_key', __( "Data key", 'wpvq' ) ),
+				        Field::make( 'text', 'wpvqgr_draw_meta_value', __( "Data value", 'wpvq' ) ),
+				    ))
+	        ) );
+
+		Container::make( 'post_meta', __( "User's Profile", 'wpvq' ) )
 	        ->where( 'post_type', '=', 'wpvqgr_user' )
 	        ->add_fields( array(
 	            Field::make( 'complex', 'wpvqgr_user_metas', __("All the user's inputs", 'wpvq') )
