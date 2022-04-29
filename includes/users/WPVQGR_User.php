@@ -9,23 +9,27 @@ class WPVQGR_User
 	private $metas 		=  array();
 	private $answers 	=  array();
 
-	public static function register_in_draw($user_id){
+	public static function check_in_draw($user_id, $draw_id = 0){
 
 		$current_draw_id = 0;
-		$latest_draw = new WP_Query( array( 
-			'post_type'      => 'wpvqgr_draw',
-			'post_status'    => 'publish',
-			'posts_per_page' => 1,
-			'orderby'        => 'date',
-			'order'          => 'DESC', // in OP you're using ASC which will get earliest not latest.
-			//'offset'         => 1,      // skip over the first post.
-			'no_found_rows'  => true,   // optimize query since no pagination .needed.
-		) );
-
-		if($latest_draw->have_posts()){
-			$current_draw_id = $latest_draw->posts[0]->ID;
+		if($draw_id > 0){
+			$current_draw_id = $draw_id;
 		}else{
-			return 0;
+			$latest_draw = new WP_Query( array( 
+				'post_type'      => 'wpvqgr_draw',
+				'post_status'    => 'publish',
+				'posts_per_page' => 1,
+				'orderby'        => 'date',
+				'order'          => 'DESC', // in OP you're using ASC which will get earliest not latest.
+				//'offset'         => 1,      // skip over the first post.
+				'no_found_rows'  => true,   // optimize query since no pagination .needed.
+			) );
+	
+			if($latest_draw->have_posts()){
+				$current_draw_id = $latest_draw->posts[0]->ID;
+			}else{
+				return 0;
+			}
 		}
 
 		$args1 = array( 
@@ -52,14 +56,15 @@ class WPVQGR_User
 		if($take_info->have_posts()){
 			$current_draw_state = get_post_meta($current_draw_id, '_wpvqgr_draw_state', true);
 			if($current_draw_state == 'closed'){
-				return 2;// reached limit and registered
+				if($draw_id > 0){
+					return 1;
+				}
+				return 0;
 			}else if($current_draw_state == 'open'){
 				return 1;// still open and registered
-			}else{
-				return 0;
 			}
 		}
-		return 0;//
+		return 0;
 	}
 
 	public function getId() {

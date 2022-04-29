@@ -127,68 +127,15 @@ class WPVQGR_ajax_controller
 		// Sync session
 		$this->synchronize_session('upload');
 
-		// Return data to view
-		return json_encode(array('status' => true));
-	}
-
-	public function register_in_draw($data = array()){
-
-		$user = wp_get_current_user();
-		if(!$user || $user->ID == 0){
-			die ( 'Not authorized.');
-		}
-
-		if(WPVQGR_User::register_in_draw($user->data->ID) == 1){
-			die ('Already Registered!');
-		}
-
 		$draw_total_entrant_setting = 1;
 		$ret0 = carbon_get_theme_option( 'wpvqgr_entrant_count');
 		if($ret0 > 0) $draw_total_entrant_setting = $ret0;
 
-		$current_draw_total_entrant = 0;
-
-		$ret1 = carbon_get_post_meta( $this->draw_id, 'wpvqgr_draw_metas[1]/' . 'wpvqgr_draw_meta_value');
-		if($ret1 > 0){
-			$current_draw_total_entrant = $ret1;
-		}
+		$current_draw_total_entrant = get_post_meta( $this->user_id, '_wpvqgr_draw_meta_register_order_value', true);
+		carbon_set_post_meta( $this->user_id, 'wpvqgr_draw_metas[1]/' . 'wpvqgr_draw_meta_key', 'Regiser Order' );
+		carbon_set_post_meta( $this->user_id, 'wpvqgr_draw_metas[1]/' . 'wpvqgr_draw_meta_value', $current_draw_total_entrant );
 
 		if($draw_total_entrant_setting == $current_draw_total_entrant){
-			$draw_state = get_post_meta($this->draw_id, '_wpvqgr_draw_state', true);
-			if($draw_state == "closed"){
-				$this->create_new_draw();
-				$current_draw_total_entrant = 0;
-			}
-		}
-
-		if($draw_total_entrant_setting > $current_draw_total_entrant){
-			$current_draw_total_entrant  = $current_draw_total_entrant + 1;
-
-			if($this->draw_id == 0){
-				$this->create_new_draw();
-			}
-
-			if ($this->user_id == 0) {
-				$this->create_user( (int)$_POST['quiz_id'], $current_draw_total_entrant );
-			}
-
-			$this->add_user_info();
-
-			// add_post_meta( $this->user_id, '_wpvqgr_draw_meta_id_value', $this->draw_id);
-
-			carbon_set_post_meta( $this->user_id, 'wpvqgr_draw_metas[1]/' . 'wpvqgr_draw_meta_key', 'Regiser Order' );
-			carbon_set_post_meta( $this->user_id, 'wpvqgr_draw_metas[1]/' . 'wpvqgr_draw_meta_value', $current_draw_total_entrant );
-
-			carbon_set_post_meta( $this->draw_id, 'wpvqgr_draw_metas[0]/' . 'wpvqgr_draw_meta_key', 'Draw Number' );
-			carbon_set_post_meta( $this->draw_id, 'wpvqgr_draw_metas[0]/' . 'wpvqgr_draw_meta_value', $this->draw_number );
-
-			carbon_set_post_meta( $this->draw_id, 'wpvqgr_draw_metas[1]/' . 'wpvqgr_draw_meta_key', 'Current Entrant Count' );
-			carbon_set_post_meta( $this->draw_id, 'wpvqgr_draw_metas[1]/' . 'wpvqgr_draw_meta_value', $current_draw_total_entrant );
-		}
-
-		if( $draw_total_entrant_setting <= $current_draw_total_entrant ){
-
-			//get entrant 1~$draw_total_entrant_setting
 			$winner_order = rand(1, $draw_total_entrant_setting);
 
 			$args1 = array( 
@@ -204,7 +151,7 @@ class WPVQGR_ajax_controller
 						'compare'  => '=',
 					),
 					array(
-						'key'      => '_wpvqgr_draw_metas|wpvqgr_draw_meta_value|1|0|value',
+						'key'      => '_wpvqgr_draw_meta_register_order_value',
 						'value'    =>  $winner_order,
 						'compare'  => '=',
 					),
@@ -221,14 +168,75 @@ class WPVQGR_ajax_controller
 				carbon_set_post_meta( $this->draw_id, 'wpvqgr_draw_winners[0]/' . 'wpvqgr_draw_winner_email', $winner_email);
 				carbon_set_post_meta( $this->draw_id, 'wpvqgr_draw_winners[0]/' . 'wpvqgr_draw_winner_order', $winner_order);
 
-				// $this->send_congratulation_email($winner_email, $winner_name);
+				$this->send_congratulation_email($winner_email, $winner_name);
 			}
+
+
+			//rename (remove open state)
 			wp_update_post( array(
 				'ID'           => $this->draw_id,
 				'post_title'   => 'Draw ' . $this->draw_number,
 			));	
-
 			update_post_meta($this->draw_id, '_wpvqgr_draw_state', 'closed');
+		}
+
+		carbon_set_post_meta( $this->draw_id, 'wpvqgr_draw_metas[0]/' . 'wpvqgr_draw_meta_key', 'Draw Number' );
+		carbon_set_post_meta( $this->draw_id, 'wpvqgr_draw_metas[0]/' . 'wpvqgr_draw_meta_value', $this->draw_number );
+
+		carbon_set_post_meta( $this->draw_id, 'wpvqgr_draw_metas[2]/' . 'wpvqgr_draw_meta_key', 'Current Entrant Quiz/Answer Count' );
+		carbon_set_post_meta( $this->draw_id, 'wpvqgr_draw_metas[2]/' . 'wpvqgr_draw_meta_value', $current_draw_total_entrant );
+
+		// Return data to view
+		return json_encode(array('status' => true));
+	}
+
+	public function register_in_draw($data = array()){
+
+		$user = wp_get_current_user();
+		if(!$user || $user->ID == 0){
+			die ( 'Not authorized.');
+		}
+
+		if(WPVQGR_User::check_in_draw($user->data->ID) == 1){
+			die ('Already Registered!');
+		}
+
+		$draw_total_entrant_setting = 1;
+		$ret0 = carbon_get_theme_option( 'wpvqgr_entrant_count');
+		if($ret0 > 0) $draw_total_entrant_setting = $ret0;
+
+		$current_draw_total_entrant = 0;
+		$ret1 = carbon_get_post_meta( $this->draw_id, 'wpvqgr_draw_metas[2]/' . 'wpvqgr_draw_meta_value');
+		if($ret1 > 0){
+			$current_draw_total_entrant = $ret1;
+		}
+	
+		if($draw_total_entrant_setting <= $current_draw_total_entrant || get_post_meta($this->draw_id, '_wpvqgr_draw_state', true) == 'closed'){
+			$this->create_new_draw();
+			$current_draw_total_entrant = 0;
+		}
+
+		if($draw_total_entrant_setting > $current_draw_total_entrant){
+			$current_draw_total_entrant  = $current_draw_total_entrant + 1;
+
+			if($this->draw_id == 0){
+				$this->create_new_draw();
+			}
+
+			if ($this->user_id == 0) {
+				$this->create_user( (int)$_POST['quiz_id'], $current_draw_total_entrant );
+			}
+
+			$this->add_user_info();
+
+			$current_draw_total_user = 0;
+			$ret1 = carbon_get_post_meta( $this->draw_id, 'wpvqgr_draw_metas[1]/' . 'wpvqgr_draw_meta_value');
+			if($ret1 > 0){
+				$current_draw_total_user = $ret1;
+			}
+			carbon_set_post_meta( $this->draw_id, 'wpvqgr_draw_metas[1]/' . 'wpvqgr_draw_meta_key', 'Current Entrant User Count' );
+			carbon_set_post_meta( $this->draw_id, 'wpvqgr_draw_metas[1]/' . 'wpvqgr_draw_meta_value', $current_draw_total_user + 1 );
+
 		}
 	}
 
@@ -239,7 +247,7 @@ class WPVQGR_ajax_controller
 			die ( 'Not authorized.');
 		}
 
-		if(WPVQGR_User::register_in_draw($user->data->ID) == 1){
+		if(WPVQGR_User::check_in_draw($user->data->ID) == 1){
 			die('yes');
 		}
 		die('no');
@@ -304,7 +312,7 @@ class WPVQGR_ajax_controller
 
 		$User = NULL;
 		if ( $Quiz->getSetting('saveanswers') && $this->user_id == 0 ) {
-			$this->create_user( (int)$_POST['quiz_id'] );
+			// $this->create_user( (int)$_POST['quiz_id'] );
 		}
 
 		// If user created here or at ::add_user_info
@@ -321,23 +329,19 @@ class WPVQGR_ajax_controller
 	 * Create a new user
 	 * @return [type] [description]
 	 */
-	private function create_user($tag, $register_number = "")
+	private function create_user($tag, $register_order = "")
 	{
-		// Create the user if needed
-		$this->user_id = wp_insert_post(array(
-		   'post_type' 		 =>  'wpvqgr_user',
-		   'post_title' 	 =>  '',
-		   'post_content' 	 =>  '',
-		   'post_status' 	 =>  'publish',
-		   'comment_status'  =>  'closed',
-		   'ping_status' 	 =>  'closed',
-		));
-
 		$user = wp_get_current_user();
-		$title = "User ". $this->draw_number;
 
-		if($register_number == ""){
-			//get latest answer value
+		$draw_total_entrant_setting = 1;
+		$ret0 = carbon_get_theme_option( 'wpvqgr_entrant_count');
+		if($ret0 > 0) $draw_total_entrant_setting = $ret0;
+ 
+		$current_draw_total_entrant = 0;
+		if($register_order != ""){
+			$current_draw_total_entrant = $register_order;
+		}else{
+
 			$args1 = array( 
 				'post_type'      => 'wpvqgr_user',
 				'post_status'    => 'publish',
@@ -353,11 +357,6 @@ class WPVQGR_ajax_controller
 						'compare'  => '=',
 					),
 					array(
-						'key'      => '_wpvqgr_user_meta_id_value',
-						'value'    =>  $user->data->ID,
-						'compare'  => '=',
-					),
-					array(
 						'key'      => '_wpvqgr_draw_meta_number_value',
 						'value'    =>  $this->draw_number,
 						'compare'  => '=',
@@ -366,23 +365,34 @@ class WPVQGR_ajax_controller
 			);
 
 			$last_answer_info = new WP_Query( $args1 );
+
 			if($last_answer_info->have_posts()){
+
 				$last_answer_post_id = $last_answer_info->posts[0]->ID;
-
 				$last_register_order_value = get_post_meta($last_answer_post_id, '_wpvqgr_draw_meta_register_order_value')[0];
-				$last_register_order_answer_value = get_post_meta($last_answer_post_id, '_wpvqgr_draw_meta_register_order_answer_value')[0];
-
-				$title = $title . "-" .$last_register_order_value."-".($last_register_order_answer_value + 1).($user? ' ('.$user->data->user_nicename.') ' : " ");
-
-				add_post_meta( $this->user_id, '_wpvqgr_draw_meta_register_order_value', $last_register_order_value);
-				add_post_meta( $this->user_id, '_wpvqgr_draw_meta_register_order_answer_value', $last_register_order_answer_value + 1);
+				$current_draw_total_entrant = $last_register_order_value;
 			}
-		}else{
-			$title = $title . "-" . $register_number ."-1 ". ($user? ' ('.$user->data->user_nicename.') ' : " ");
 
-			add_post_meta( $this->user_id, '_wpvqgr_draw_meta_register_order_value', $register_number);
-			add_post_meta( $this->user_id, '_wpvqgr_draw_meta_register_order_answer_value', 1);
+			if($draw_total_entrant_setting > $current_draw_total_entrant ){
+				$current_draw_total_entrant = $current_draw_total_entrant + 1;
+			}else{
+				$this->create_new_draw();
+				$current_draw_total_entrant = 1;
+			}
 		}
+
+		$this->user_id = wp_insert_post(array(
+			'post_type' 		 =>  'wpvqgr_user',
+			'post_title' 	 =>  '',
+			'post_content' 	 =>  '',
+			'post_status' 	 =>  'publish',
+			'comment_status'  =>  'closed',
+			'ping_status' 	 =>  'closed',
+		 ));
+		add_post_meta( $this->user_id, '_wpvqgr_draw_meta_register_order_value', $current_draw_total_entrant);
+
+		$title = "User ". $this->draw_number;
+		$title = $title . "-" .$current_draw_total_entrant.($user? ' ('.$user->data->user_nicename.') ' : " ");
 
 		// Change User Title
 		wp_update_post( array(
@@ -416,8 +426,10 @@ class WPVQGR_ajax_controller
 
 		carbon_set_post_meta( $this->draw_id, 'wpvqgr_draw_metas[0]/' . 'wpvqgr_draw_meta_key', 'Draw Number' );
 		carbon_set_post_meta( $this->draw_id, 'wpvqgr_draw_metas[0]/' . 'wpvqgr_draw_meta_value', $this->draw_number );
-		carbon_set_post_meta( $this->draw_id, 'wpvqgr_draw_metas[1]/' . 'wpvqgr_draw_meta_key', 'Current Entrant Count' );
+		carbon_set_post_meta( $this->draw_id, 'wpvqgr_draw_metas[1]/' . 'wpvqgr_draw_meta_key', 'Current Entrant User Count' );
 		carbon_set_post_meta( $this->draw_id, 'wpvqgr_draw_metas[1]/' . 'wpvqgr_draw_meta_value', 0 );
+		carbon_set_post_meta( $this->draw_id, 'wpvqgr_draw_metas[2]/' . 'wpvqgr_draw_meta_key', 'Current Entrant Quiz/Answer Count' );
+		carbon_set_post_meta( $this->draw_id, 'wpvqgr_draw_metas[2]/' . 'wpvqgr_draw_meta_value', 0 );
 
 		return $this->draw_id;
 	}
@@ -455,7 +467,7 @@ class WPVQGR_ajax_controller
 
 	private function send_congratulation_email($winner_email, $winner_name){
 
-		$user = get_user_by('user_email' ,$winner_email );
+		$user = get_user_by('email' ,$winner_email );
 
 		$message  = sprintf( __( 'Username: %s' ), $winner_name ) . "\r\n\r\n";
 		$message .= __( 'Congratulations on winning the lottery.' ) . "\r\n\r\n";
@@ -463,21 +475,18 @@ class WPVQGR_ajax_controller
 		// $message .= network_site_url( "wp-login.php?action=rp&key=$key&login=" . rawurlencode( $winner_name ), 'login' ) . "\r\n\r\n";
 		// $message .= wp_login_url() . "\r\n";
 
-		$wp_new_user_notification_email = array(
+		$wp_user_notification_email = array(
 			'to'      => $winner_email,
-			/* translators: Login details notification email subject. %s: Site title. */
-			'subject' => __( '[%s] Login Details' ),
+			'subject' => __( 'Qizzes Winner!' ),
 			'message' => $message,
-			'headers' => '',
+			'headers' => 'Trivia Quizzes Winner!',
 		);
 
-		$wp_new_user_notification_email = apply_filters( 'wp_new_user_notification_email', $wp_new_user_notification_email, $user, "Winner" );
-
 		wp_mail(
-			$wp_new_user_notification_email['to'],
-			wp_specialchars_decode( sprintf( $wp_new_user_notification_email['subject'], "Winner" ) ),
-			$wp_new_user_notification_email['message'],
-			$wp_new_user_notification_email['headers']
+			$wp_user_notification_email['to'],
+			$wp_user_notification_email['subject'],
+			$wp_user_notification_email['message'],
+			$wp_user_notification_email['headers']
 		);
 
 	}

@@ -77,7 +77,7 @@ class WPVQGR_Shortcode {
 
 		$user = wp_get_current_user();
 		if($user && $user->ID > 0){
-			$ret = WPVQGR_User::register_in_draw($user->data->ID);
+			$ret = WPVQGR_User::check_in_draw($user->data->ID);
 			if($ret == 1){
 				$show_register = 0;
 			}
