@@ -9,6 +9,7 @@ class WPVQGR_User
 	private $metas 		=  array();
 	private $answers 	=  array();
 
+	// 1-register 0-unregister
 	public static function check_in_draw($user_id, $draw_id = 0){
 
 		$current_draw_id = 0;
@@ -61,6 +62,21 @@ class WPVQGR_User
 				}
 				return 0;
 			}else if($current_draw_state == 'open'){
+
+				$draw_total_entrant_setting = 1;
+				$ret0 = carbon_get_theme_option( 'wpvqgr_entrant_count');
+				if($ret0 > 0) $draw_total_entrant_setting = $ret0;
+
+				$current_draw_total_entrant = 0;
+				$ret1 = carbon_get_post_meta( $current_draw_id, 'wpvqgr_draw_metas[2]/' . 'wpvqgr_draw_meta_value');
+				if($ret1 > 0){
+					$current_draw_total_entrant = $ret1;
+				}
+
+				if($draw_total_entrant_setting <= $current_draw_total_entrant){
+					return 0;
+				}
+		
 				return 1;// still open and registered
 			}
 		}

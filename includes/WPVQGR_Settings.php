@@ -132,7 +132,21 @@ class WPVQGR_Settings
 			Field::make( 'text', 'wpvqgr_entrant_count', __('Total number of entrants', 'wpvq') )
 			->set_help_text(__("Once the total number of entrants is reached, the draw closes and a new one begins, a winner is randomly selected and a congratulatory email is sent.", 'wpvq'))
 			->set_attribute('placeholder', '100'),
+
+			Field::make( 'html', 'wpvqgr_quiz_winner_email_setting_html')
+			->set_html('
+				<h3 style="font-weight:bold;">'.__('Customize Winner Email', 'wpvq').'</h3>
+				<p>'.__('Configure email content for winner.', 'wpvq').'</p>
+				<ul class="wpvq-tags-list"><li>– <strong>%%winnername%%</strong> : '.__('will be replaced by winner name', 'wpvq').'</li><li>– <strong>%%winneremail%%</strong> : '.__('will be replaced by winner email', 'wpvq').'</li></ul>
+			'),
+
+			Field::make( 'text', 'wpvqgr_quiz_trivia_winner_email_subject', __('Email Subject :', 'wpvq') )
+			->set_default_value(__("Quizzes Winner!", 'wpvq')),
+			// Field::make( 'text', 'wpvqgr_quiz_trivia_winner_email_header', __('Email Header :', 'wpvq') )
+			// ->set_default_value(__("Trivia Quizzes Winner!", 'wpvq')),
+			Field::make( 'textarea', 'wpvqgr_quiz_trivia_winner_email_content', __('Email Content :', 'wpvq') )
+			->set_default_value(__("Username:%%winnername%%
+			Congratulations on winning the lottery.", 'wpvq')),
 		));
-		
 	}
 }

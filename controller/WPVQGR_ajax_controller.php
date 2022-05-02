@@ -135,49 +135,8 @@ class WPVQGR_ajax_controller
 		carbon_set_post_meta( $this->user_id, 'wpvqgr_draw_metas[1]/' . 'wpvqgr_draw_meta_key', 'Regiser Order' );
 		carbon_set_post_meta( $this->user_id, 'wpvqgr_draw_metas[1]/' . 'wpvqgr_draw_meta_value', $current_draw_total_entrant );
 
-		if($draw_total_entrant_setting == $current_draw_total_entrant){
-			$winner_order = rand(1, $draw_total_entrant_setting);
-
-			$args1 = array( 
-				'post_type'      => 'wpvqgr_user',
-				'post_status'    => 'publish',
-				'posts_per_page' => 1,
-				'no_found_rows'  => true,   // optimize query since no pagination .needed.
-				'meta_query'     => array(
-					'relation' => 'AND',
-					array(
-						'key'      => '_wpvqgr_draw_meta_id_value',
-						'value'    =>  $this->draw_id,
-						'compare'  => '=',
-					),
-					array(
-						'key'      => '_wpvqgr_draw_meta_register_order_value',
-						'value'    =>  $winner_order,
-						'compare'  => '=',
-					),
-				),
-			);
-
-			$winner_info = new WP_Query( $args1 );
-
-			if($winner_info->have_posts()){
-				$winner_name = carbon_get_post_meta($winner_info->posts[0]->ID, 'wpvqgr_user_metas[0]/' . 'wpvqgr_user_meta_value');//name
-				$winner_email = carbon_get_post_meta($winner_info->posts[0]->ID, 'wpvqgr_user_metas[1]/' . 'wpvqgr_user_meta_value');//email
-	
-				carbon_set_post_meta( $this->draw_id, 'wpvqgr_draw_winners[0]/' . 'wpvqgr_draw_winner_name', $winner_name);
-				carbon_set_post_meta( $this->draw_id, 'wpvqgr_draw_winners[0]/' . 'wpvqgr_draw_winner_email', $winner_email);
-				carbon_set_post_meta( $this->draw_id, 'wpvqgr_draw_winners[0]/' . 'wpvqgr_draw_winner_order', $winner_order);
-
-				$this->send_congratulation_email($winner_email, $winner_name);
-			}
-
-
-			//rename (remove open state)
-			wp_update_post( array(
-				'ID'           => $this->draw_id,
-				'post_title'   => 'Draw ' . $this->draw_number,
-			));	
-			update_post_meta($this->draw_id, '_wpvqgr_draw_state', 'closed');
+		if($draw_total_entrant_setting <= $current_draw_total_entrant){
+			$this->draw_winner_close($current_draw_total_entrant);
 		}
 
 		carbon_set_post_meta( $this->draw_id, 'wpvqgr_draw_metas[0]/' . 'wpvqgr_draw_meta_key', 'Draw Number' );
@@ -188,6 +147,50 @@ class WPVQGR_ajax_controller
 
 		// Return data to view
 		return json_encode(array('status' => true));
+	}
+
+	public function draw_winner_close($current_draw_total_entrant){
+		$winner_order = rand(1 ,$current_draw_total_entrant);
+
+		$args1 = array( 
+			'post_type'      => 'wpvqgr_user',
+			'post_status'    => 'publish',
+			'posts_per_page' => 1,
+			'no_found_rows'  => true,   // optimize query since no pagination .needed.
+			'meta_query'     => array(
+				'relation' => 'AND',
+				array(
+					'key'      => '_wpvqgr_draw_meta_id_value',
+					'value'    =>  $this->draw_id,
+					'compare'  => '=',
+				),
+				array(
+					'key'      => '_wpvqgr_draw_meta_register_order_value',
+					'value'    =>  $winner_order,
+					'compare'  => '=',
+				),
+			),
+		);
+
+		$winner_info = new WP_Query( $args1 );
+
+		if($winner_info->have_posts()){
+			$winner_name = carbon_get_post_meta($winner_info->posts[0]->ID, 'wpvqgr_user_metas[0]/' . 'wpvqgr_user_meta_value');//name
+			$winner_email = carbon_get_post_meta($winner_info->posts[0]->ID, 'wpvqgr_user_metas[1]/' . 'wpvqgr_user_meta_value');//email
+
+			carbon_set_post_meta( $this->draw_id, 'wpvqgr_draw_winners[0]/' . 'wpvqgr_draw_winner_name', $winner_name);
+			carbon_set_post_meta( $this->draw_id, 'wpvqgr_draw_winners[0]/' . 'wpvqgr_draw_winner_email', $winner_email);
+			carbon_set_post_meta( $this->draw_id, 'wpvqgr_draw_winners[0]/' . 'wpvqgr_draw_winner_order', $winner_order);
+
+			$this->send_congratulation_email($winner_email, $winner_name);
+		}
+
+		//rename (remove open state)
+		wp_update_post( array(
+			'ID'           => $this->draw_id,
+			'post_title'   => 'Draw ' . $this->draw_number,
+		));	
+		update_post_meta($this->draw_id, '_wpvqgr_draw_state', 'closed');
 	}
 
 	public function register_in_draw($data = array()){
@@ -210,8 +213,14 @@ class WPVQGR_ajax_controller
 		if($ret1 > 0){
 			$current_draw_total_entrant = $ret1;
 		}
-	
-		if($draw_total_entrant_setting <= $current_draw_total_entrant || get_post_meta($this->draw_id, '_wpvqgr_draw_state', true) == 'closed'){
+
+		if($draw_total_entrant_setting <= $current_draw_total_entrant){
+			if(get_post_meta($this->draw_id, '_wpvqgr_draw_state', true) != 'closed'){
+				$this->draw_winner_close($current_draw_total_entrant);
+			}
+			$this->create_new_draw();
+			$current_draw_total_entrant = 0;
+		}else if(get_post_meta($this->draw_id, '_wpvqgr_draw_state', true) == 'closed'){
 			$this->create_new_draw();
 			$current_draw_total_entrant = 0;
 		}
@@ -467,19 +476,34 @@ class WPVQGR_ajax_controller
 
 	private function send_congratulation_email($winner_email, $winner_name){
 
-		$user = get_user_by('email' ,$winner_email );
+		// $user = get_user_by('email' ,$winner_email );
 
-		$message  = sprintf( __( 'Username: %s' ), $winner_name ) . "\r\n\r\n";
-		$message .= __( 'Congratulations on winning the lottery.' ) . "\r\n\r\n";
-		
-		// $message .= network_site_url( "wp-login.php?action=rp&key=$key&login=" . rawurlencode( $winner_name ), 'login' ) . "\r\n\r\n";
-		// $message .= wp_login_url() . "\r\n";
+		$email_subject = "";
+		$email_subject = carbon_get_theme_option( 'wpvqgr_quiz_trivia_winner_email_subject');
+		if($email_subject == "") $email_subject = "Quizzes Winner!";
+
+		// $email_header = "";
+		// $email_header = carbon_get_theme_option( 'wpvqgr_quiz_trivia_winner_email_header');
+		// if($email_header == "") $email_header = "Trivia Quizzes Winner!";
+
+		$email_message = "";
+		$email_message = carbon_get_theme_option( 'wpvqgr_quiz_trivia_winner_email_content');
+		if($email_message == "") $email_message = "Congratulations on winning the lottery.";
+		// $message  = sprintf( __( 'Username: %s' ), $winner_name ) . "\r\n\r\n";
+		// $message .= __( 'Congratulations on winning the lottery.' ) . "\r\n\r\n";
+
+		$email_subject = str_replace("%%winnername%%", $winner_name, $email_subject);
+		$email_subject = str_replace("%%winneremail%%", $winner_email, $email_subject);
+		// $email_header = str_replace("%%winnername%%", $winner_name, $email_header);
+		// $email_header = str_replace("%%winneremail%%", $winner_email, $email_header);
+		$email_message = str_replace("%%winnername%%", $winner_name, $email_message);
+		$email_message = str_replace("%%winneremail%%", $winner_email, $email_message);
 
 		$wp_user_notification_email = array(
 			'to'      => $winner_email,
-			'subject' => __( 'Qizzes Winner!' ),
-			'message' => $message,
-			'headers' => 'Trivia Quizzes Winner!',
+			'subject' => $email_subject,
+			'message' => $email_message,
+			'headers' => "",
 		);
 
 		wp_mail(
@@ -488,7 +512,6 @@ class WPVQGR_ajax_controller
 			$wp_user_notification_email['message'],
 			$wp_user_notification_email['headers']
 		);
-
 	}
 
 	/**
