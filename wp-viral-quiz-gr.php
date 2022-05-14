@@ -116,6 +116,18 @@ class WPViralQuizGR {
 
 		// Add custom content to edit.php pages
 		add_filter( 'admin_notices', array('WPVQGR_BackendCustomContent', 'printBannerAds'), 999 );
+
+		// Plugin Integration Ezoic
+		add_filter( 'script_loader_tag', function($tag, $handle){
+			$_scripts = array('wpvqgr-fo-social-media', 'wpvqgr-fo-ga-analytics', 
+			'wpvqgr_quiz_trivia-script-global', 'wpvqgr_quiz_perso-script-global',
+			'wpvqgr_quiz_trivia-script', 'wpvqgr_quiz_perso-script'
+			);
+			if( !in_array($handle, $_scripts)){
+				return $tag;
+			}
+				return str_replace(' src', ' defer src', $tag);
+		}, 10, 2);
 	}
 
 	/**
@@ -199,7 +211,7 @@ class WPViralQuizGR {
 	public function reset_session()
 	{
 		if( !session_id()) {
-        	session_start();
+        	session_start(['read_and_close' => true]);
         }
 
         // Reset user and random seed

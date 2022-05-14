@@ -524,7 +524,7 @@ class WPVQGR_ajax_controller
 	private function synchronize_session($direction)
 	{
 		if (!session_id()) {
-        	session_start();
+        	session_start(['read_and_close' => true]);
         }
 
 		if ($direction == 'upload')

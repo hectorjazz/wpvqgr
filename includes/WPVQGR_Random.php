@@ -8,7 +8,7 @@ class WPVQGR_Random
 	function __construct()
 	{
 		if( !session_id()) {
-        	session_start();
+        	session_start(['read_and_close' => true]);
         }
 
         if (!isset($_SESSION['wpvqgr']['seed'])) {
