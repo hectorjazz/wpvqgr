@@ -78,9 +78,7 @@ class WPVQGR_ajax_controller
 		$data = array();
 		parse_str($_POST['data'], $data);
 
-		if ($this->user_id == 0) {
-			$this->create_user( (int)$_POST['quiz_id'] );
-		}
+		$this->create_user( (int)$_POST['quiz_id'] );
 
 		// Update user
 		$carbon_data = array();
@@ -230,10 +228,6 @@ class WPVQGR_ajax_controller
 
 			if($this->draw_id == 0){
 				$this->create_new_draw();
-			}
-
-			if ($this->user_id == 0) {
-				$this->create_user( (int)$_POST['quiz_id'], $current_draw_total_entrant );
 			}
 
 			$this->add_user_info();
@@ -530,8 +524,8 @@ class WPVQGR_ajax_controller
 		if ($direction == 'upload')
 		{
 			$_SESSION['wpvqgr']['user_id'] 		=  $this->user_id;
-			$_SESSION['wpvqgr']['nb_fields'] 	=  $this->nb_fields;
-			$_SESSION['wpvqgr']['nb_steps'] 	=  $this->nb_steps;
+			// $_SESSION['wpvqgr']['nb_fields'] 	=  $this->nb_fields;
+			// $_SESSION['wpvqgr']['nb_steps'] 	=  $this->nb_steps;
 		}
 		else if ($direction = 'download')
 		{
@@ -539,13 +533,13 @@ class WPVQGR_ajax_controller
 				$this->user_id = intval($_SESSION['wpvqgr']['user_id']);
 			}
 
-			if (isset($_SESSION['wpvqgr']['nb_fields']) && is_numeric($_SESSION['wpvqgr']['nb_fields'])) {
-				$this->nb_fields = intval($_SESSION['wpvqgr']['nb_fields']);
-			}
+			// if (isset($_SESSION['wpvqgr']['nb_fields']) && is_numeric($_SESSION['wpvqgr']['nb_fields'])) {
+			// 	$this->nb_fields = intval($_SESSION['wpvqgr']['nb_fields']);
+			// }
 
-			if (isset($_SESSION['wpvqgr']['nb_steps']) && is_numeric($_SESSION['wpvqgr']['nb_steps'])) {
-				$this->nb_steps = intval($_SESSION['wpvqgr']['nb_steps']);
-			}
+			// if (isset($_SESSION['wpvqgr']['nb_steps']) && is_numeric($_SESSION['wpvqgr']['nb_steps'])) {
+			// 	$this->nb_steps = intval($_SESSION['wpvqgr']['nb_steps']);
+			// }
 		}
 	}
 
