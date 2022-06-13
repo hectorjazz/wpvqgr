@@ -261,6 +261,8 @@ class WPVQGR_ajax_controller
 	 */
 	public function save_answers()
 	{
+		//add check test data
+		
 		// Block bad request.
 		if ( !isset($_POST['finalScore']) || !isset($_POST['quiz_questions']) || !isset($_POST['user_answers']) 
 		//|| !isset($_POST['wpvqgr_nounce']) || ! wp_verify_nonce( $_POST['wpvqgr_nounce'], 'wpvqgr_nounce' ) 
