@@ -191,7 +191,7 @@ class WPVQGR_ajax_controller
 		update_post_meta($this->draw_id, '_wpvqgr_draw_state', 'closed');
 	}
 
-	public function register_in_draw($data = array()){
+	public function register_in_draw(){
 
 		$user = wp_get_current_user();
 		if(!$user || $user->ID == 0){
@@ -271,6 +271,8 @@ class WPVQGR_ajax_controller
 		if(!($user && $user->ID > 0)){
 			die ( 'Not authorized.');
 		}
+
+		// add check demo data
  
  		if ($this->user_id == 0) {
 			$this->create_user( (int)$_POST['quiz_id'] );
