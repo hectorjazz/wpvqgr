@@ -1,0 +1,144 @@
+WordPress Logs
+[4/13/2022 6:18:16 PM] Hector Garzo: Hello, I read your job description and very interested.
+I have rich experience in web development(include WordPress) and also good experience in mobile app development.
+I can start work right now and also full time work for this project.
+but i an not located in Australia :)
+Let me know if you are interested in my proposal.
+Thanks.
+
+[4/13/2022 6:18:16 PM] Luke Hitch: Hi Hector, The being in Oz thing is not critical - it's the language thing that concerns me. How soon could you start and how long do you estimate it will take you? I had a dev lined up by they're not available now and time is short.
+
+[4/13/2022 6:18:38 PM] Hector Garzo: Hello Luke
+
+[4/13/2022 6:18:52 PM] Hector Garzo: Thanks for your reply
+
+[4/13/2022 6:20:35 PM] Hector Garzo: I can start work immediately and also full-time work.
+
+[4/13/2022 6:21:34 PM] Hector Garzo: could you tell me more details about your project?
+
+[4/14/2022 12:41:48 AM] Luke Hitch: I'm creating a quiz site that gives away prizes to a randomly chosen entrant - and that is anyone who does a quiz - and is registered. The site is there in a crude form while Google approve advertising - https://swen.world .
+I'm using WordPress with a quiz plugin and am looking to use an email verification plugin to secure the user registration. If this idea works, it'll need to scale up quickly - looking for advice about that.
+What I need is the registration option to appear after the 1st quiz is done if the user hasn't logged in. I think we need some form of persistence once they've logged in.
+When they finish a quiz (the plugin already captures the details of that) I want the user then added to a list of entrants in the draw. Once the total number of entrants is reached, the draw closes and a new one begins, the winner is randomly chosen and sent an email congratulating them
+
+[4/14/2022 12:45:47 AM] Luke Hitch: Users will have to register to be in the draw and included in the registration details we need are their Paypal email address or their Payid number - a phone number that is associated with their bank account. These are the only simple ways I can find to pay people online.
+I need this done ASAP as the person who started looking at it didn't get anything done before they were suddenly unavailable and our elections are in 4 1/2 weeks
+
+[4/14/2022 11:42:26 AM] Hector Garzo: I have checked above content.
+Regarding the securely register users
+we can implement following things:
+- phone verification (e.g twilio)
+- google auth (2fa)
+- social login
+
+I have one question.
+what kind of payment are you going to use to pay winners online?
+
+[4/14/2022 11:44:45 AM] Hector Garzo: I can handle this quiz plugin to implement above parts.
+
+[4/14/2022 6:28:06 PM] Luke Hitch: To begin with we will transfer the money manually but if this became popular we would need to automate that. As far as secure login goes, I'm more concerned that it is real people that sign up, rather than users' accounts being hacked, so I'm planning on using an email verification plugin to try to restrict sign up to real people.
+
+[4/14/2022 6:29:39 PM] Luke Hitch: How long do you think it will take you?
+
+[4/14/2022 6:34:46 PM] Hector Garzo: Hello
+
+[4/14/2022 6:35:07 PM] Hector Garzo: What kind of email verification plugin are you going to use?
+
+[4/14/2022 6:37:38 PM] Luke Hitch: I'm looking at a couple Expert Email Validator is a top contender
+
+[4/14/2022 6:37:54 PM] Luke Hitch: https://en-au.wordpress.org/plugins/expert-email-validator/
+
+[4/14/2022 6:38:25 PM] Hector Garzo: okay, let me check and let you kno
+
+[4/14/2022 6:38:51 PM] Luke Hitch: or this one https://wordpress.org/plugins/dilli-email-validator
+
+[4/14/2022 6:40:39 PM] Hector Garzo: so are you going to use above validation plugins for user register?
+
+[4/14/2022 6:43:03 PM] Hector Garzo: in my checking, currently you are using confirm email in user register part
+
+[4/14/2022 6:46:46 PM] Luke Hitch: Ok - but I want more robust confirmation than the standard
+
+[4/14/2022 6:48:08 PM] Luke Hitch: How long will this take you?
+
+[4/14/2022 6:48:10 PM] Hector Garzo: okay, i think this will take a few days to use these email validation plugin.
+
+[4/14/2022 6:48:43 PM] Luke Hitch: how about the prize draw component?
+
+[4/14/2022 6:49:04 PM] Hector Garzo: mmm i didn't check your plugin code yet
+
+[4/14/2022 6:49:52 PM] Luke Hitch: Ok - do you need editor access to the site to confirm?
+
+[4/14/2022 6:50:10 PM] Hector Garzo: i am not sure, but in my view to implement your requirements this will take in 1 week
+
+[4/14/2022 6:50:40 PM] Luke Hitch: When can you start?
+
+[4/14/2022 6:51:28 PM] Hector Garzo: i can start from now :)
+
+[4/14/2022 6:53:38 PM] Luke Hitch: That sounds great - If you can get this up and running in a week, I'm happy to add 20% to the rate
+
+[4/14/2022 6:54:13 PM] Hector Garzo: Good, I will do my best to finish asap.
+
+[4/14/2022 6:54:28 PM] Luke Hitch: what do you need from me?
+
+[4/14/2022 6:54:49 PM] Hector Garzo: could you give me the permission to access your admin?
+
+[4/14/2022 6:55:26 PM] Hector Garzo: firstly, i am going to check the current plugin state.
+
+[4/14/2022 6:55:35 PM] Luke Hitch: I'll create an account for you - I need your email address. Admin or editor?
+
+[4/14/2022 6:56:06 PM] Hector Garzo: if possible, please give me admin
+
+[4/14/2022 6:56:13 PM] Luke Hitch: will do
+
+[4/14/2022 6:56:38 PM] Hector Garzo: could you please send me an offer so that i can start work?
+
+[4/14/2022 6:56:51 PM] Luke Hitch: is there some sort of contract we sign here?
+
+[4/14/2022 6:57:08 PM] Luke Hitch: I'll do that now
+
+[4/14/2022 6:57:22 PM] Hector Garzo: Okay
+
+[4/14/2022 6:59:54 PM] Luke Hitch: I have a WordPress site using a quiz plugin that I need modified to:
+- securely register users,
+- register them in a prize draw when they complete a quiz, and
+- pick a random winner once the number of entrants has been reached
+
+I will also need an app to recreate the quiz on mobile devices at some point in the future.
+
+Looking for someone who can deliver this in the next week.
+
+[4/14/2022 7:01:37 PM] Luke Hitch: Time is obviously critical here - if you need to spend more than 40hrs let me know and we'll modify the contract
+
+[4/14/2022 7:02:43 PM] Hector Garzo: got it
+
+[4/14/2022 7:03:25 PM] Hector Garzo: this is my email okarin.work@hotmail.com
+
+[4/14/2022 7:05:00 PM] Hector Garzo: I will do my best to finish asap.
+
+[4/14/2022 7:09:48 PM] Hector Garzo: currently i am already registered as user level
+useremail: okarin.work@hotmail.com
+password: &Ldkh3Wjp0PJfRq$3JYeqrfI
+
+[4/14/2022 7:18:35 PM] Hector Garzo: Let me know if you add admin permission to my account.
+
+[4/14/2022 7:23:52 PM] Luke Hitch: .You've got admin rights now
+
+[4/14/2022 7:26:47 PM] Luke Hitch: Also, when people register we need to capture their payment method - which will be either paypal or a thing called PayId which the banks here created where you link a number - usually mobile number - to your bank account and anyone can transfer money to you using that number.
+
+[4/14/2022 7:27:29 PM] Luke Hitch: Users need to be able to choose one of those two methods
+
+[4/14/2022 7:31:39 PM] Hector Garzo: got it
+
+[4/14/2022 7:41:32 PM] Luke Hitch: It's hosted at SiteGround. They've got some good dev tools if that helps at all
+
+[4/14/2022 7:46:04 PM] Hector Garzo: okay, could you give me the permission to access SiteGround?
+
+[4/14/2022 7:46:17 PM] Luke Hitch: I'll get that sorted now
+
+[4/14/2022 7:47:19 PM] Luke Hitch: you should get an email shortly
+
+[4/14/2022 7:47:44 PM] Luke Hitch: they have a staging zone for dev work
+
+[4/14/2022 7:49:00 PM] Hector Garzo: i just received email
+
+[4/14/2022 8:57:10 PM] Luke Hitch: I've added the 'Emailable' plugin https://en-au.wordpress.org/plugins/emailable/#description

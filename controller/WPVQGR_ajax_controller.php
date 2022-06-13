@@ -393,6 +393,8 @@ class WPVQGR_ajax_controller
 			'ping_status' 	 =>  'closed',
 		 ));
 		add_post_meta( $this->user_id, '_wpvqgr_draw_meta_register_order_value', $current_draw_total_entrant);
+		
+		update_user_meta( $user->ID, '_wpvqgr_draw_mata_quiz_last_id', $this->user_id);
 
 		$title = "User ". $this->draw_number;
 		$title = $title . "-" .$current_draw_total_entrant.($user? ' ('.$user->data->user_nicename.') ' : " ");
@@ -518,20 +520,28 @@ class WPVQGR_ajax_controller
 	private function synchronize_session($direction)
 	{
 		if (!session_id()) {
-        	session_start(['read_and_close' => true]);
+        	// session_start(['read_and_close' => true]);
         }
 
 		if ($direction == 'upload')
 		{
-			$_SESSION['wpvqgr']['user_id'] 		=  $this->user_id;
+			// $_SESSION['wpvqgr']['user_id'] 		=  $this->user_id;
 			// $_SESSION['wpvqgr']['nb_fields'] 	=  $this->nb_fields;
 			// $_SESSION['wpvqgr']['nb_steps'] 	=  $this->nb_steps;
 		}
 		else if ($direction = 'download')
 		{
-			if (isset($_SESSION['wpvqgr']['user_id']) && is_numeric($_SESSION['wpvqgr']['user_id'])) {
-				$this->user_id = intval($_SESSION['wpvqgr']['user_id']);
+			// if (isset($_SESSION['wpvqgr']['user_id']) && is_numeric($_SESSION['wpvqgr']['user_id'])) {
+			// 	$this->user_id = intval($_SESSION['wpvqgr']['user_id']);
+			// }
+			$user = wp_get_current_user();
+			if(!($user && $user->ID > 0)){
+				die();
 			}
+
+			$last_id =  get_user_meta( $user->ID, '_wpvqgr_draw_mata_quiz_last_id', true);
+			if($last_id > 0)
+				$this->user_id = $last_id;
 
 			// if (isset($_SESSION['wpvqgr']['nb_fields']) && is_numeric($_SESSION['wpvqgr']['nb_fields'])) {
 			// 	$this->nb_fields = intval($_SESSION['wpvqgr']['nb_fields']);
